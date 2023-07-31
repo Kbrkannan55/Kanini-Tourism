@@ -30,14 +30,14 @@ namespace KaniniTourism.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("Date");
-
                     b.Property<int?>("PackageId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("Date");
+
+                    b.Property<decimal?>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
@@ -72,19 +72,6 @@ namespace KaniniTourism.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("hotels");
-                });
-
-            modelBuilder.Entity("KaniniTourism.Models.ImageGallery", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
-
-                    b.HasKey("Id");
-
-                    b.ToTable("imageGallery");
                 });
 
             modelBuilder.Entity("KaniniTourism.Models.Package", b =>
@@ -200,31 +187,6 @@ namespace KaniniTourism.Migrations
                     b.HasIndex("BookingId");
 
                     b.ToTable("transaction");
-                });
-
-            modelBuilder.Entity("KaniniTourism.Models.TravelAgent", b =>
-                {
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Username");
-
-                    b.ToTable("travelAgents");
                 });
 
             modelBuilder.Entity("loginauth.Models.User", b =>

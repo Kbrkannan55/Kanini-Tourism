@@ -11,13 +11,14 @@ namespace KaniniTourism.Models
         public int? Id { get; set; }
         [Column(TypeName ="Date")]
         public DateTime? StartDate { get; set; }
-        [Column(TypeName = "Date")]
-        public DateTime? EndDate { get; set; }
+
         [ForeignKey("User")]
         public string? Username { get; set; }
 
         [ForeignKey("Package")]
         public int? PackageId { get; set; }
+
+        public Decimal? TotalAmount { get; set; }
 
 
         public ICollection<Transaction>? Transactions { get; set; }
