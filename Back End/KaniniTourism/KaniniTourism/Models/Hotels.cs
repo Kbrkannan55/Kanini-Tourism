@@ -11,5 +11,7 @@ namespace KaniniTourism.Models
         public string? HotelName { get; set; }
         public int? Rating { get; set; }
         public string? Address { get; set; }
+
+        public ICollection<Package>? packages { get; set; }
     }
 }

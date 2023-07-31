@@ -13,5 +13,7 @@ namespace KaniniTourism.Models
         public IFormFile? PlaceImage { get; set; }
         [NotMapped]
         public string? ImageSrc { get; set; }
+
+        public ICollection<Package>? Packages { get; set; }
     }
 }

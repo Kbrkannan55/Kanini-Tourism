@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using KaniniTourism.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace loginauth.Models
 {
@@ -14,5 +15,9 @@ namespace loginauth.Models
         public string? Token { get; set; }
         public string? RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
+
+
+        public ICollection<Booking>? Bookings { get; set; }
+        public ICollection<Package>? packages { get; set; }
     }
 }

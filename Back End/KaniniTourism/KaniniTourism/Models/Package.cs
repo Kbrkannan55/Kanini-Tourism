@@ -10,24 +10,17 @@ namespace KaniniTourism.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? Id { get; set; }
         public string? PackageName { get; set; }
-        [ForeignKey("Id")]
-        public Place? PlaceId { get; set; }
-        [ForeignKey("Username")]
-        public User? Username { get; set; }
-        [ForeignKey("Id")]
-        public Spot? SpotId { get; set; }
-        [ForeignKey("Id")]
-        public Hotels? HotelId { get; set; }
+        [ForeignKey("Place")]
+        public int? PlaceId { get; set; }
+        [ForeignKey("User")]
+        public string? Username { get; set; }
+        [ForeignKey("Spot")]
+        public int? SpotId { get; set; }
+        [ForeignKey("Hotels")]
+        public int? HotelId { get; set; }
         public string? Itinerary { get; set; }
         public string? Transport { get; set; }
         public Decimal? Price { get; set; }
-
-
-
-        public ICollection<Place>? Places { get; set;}
-        public ICollection<User>? Users { get; set;}
-        public ICollection<Spot>? Spots { get; set;}
-        public ICollection<Hotels>? Hotels { get; set;}
 
     }
 }

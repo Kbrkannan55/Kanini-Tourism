@@ -8,10 +8,7 @@ namespace KaniniTourism.Models
         [Key]
         public int? Id { get; set; }
         public bool? Status { get; set; }
-        [ForeignKey("Id")]
-        public Booking? BookingId { get; set; }
-
-        public ICollection<Transaction>? Transactions { get; set;}
-
+        [ForeignKey("Booking")]
+        public int? BookingId { get; set; }
     }
 }

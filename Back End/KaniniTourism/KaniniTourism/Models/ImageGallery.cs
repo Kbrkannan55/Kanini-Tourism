@@ -8,6 +8,7 @@ namespace KaniniTourism.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? Id { get; set; }
+        [NotMapped]
         public IFormFile? Images { get; set; }
 
     }

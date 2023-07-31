@@ -10,9 +10,10 @@ namespace KaniniTourism.Models
         public int Id { get; set; }
         public string? SpotName { get; set; }
         public int? SpotDuration { get; set; }
-        [ForeignKey("Id")]
-        public Place? PlaceId { get; set; }
+        [ForeignKey("Package")]
+        public int? PackageId { get; set; }
 
-        public ICollection<Place> Places { get; set;}
+        public ICollection<Place>? Places { get; set;}
+        public ICollection<Package>? Packages { get; set;}
     }
 }
