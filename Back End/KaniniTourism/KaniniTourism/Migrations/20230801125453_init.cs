@@ -6,23 +6,40 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace KaniniTourism.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDB : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "feedbacks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Subject = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_feedbacks", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "hotels",
                 columns: table => new
                 {
-                    HotelId = table.Column<int>(type: "int", nullable: false),
-                    HotelName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HotelId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HotelName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HotelDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Ratings = table.Column<double>(type: "float", nullable: true),
                     PricePerPerson = table.Column<int>(type: "int", nullable: true),
                     HotelRoomsAvailable = table.Column<int>(type: "int", nullable: false),
                     FoodType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HotelLocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HotelLocation = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageName = table.Column<string>(type: "nvarchar(100)", nullable: true)
                 },
                 constraints: table =>
@@ -34,29 +51,15 @@ namespace KaniniTourism.Migrations
                 name: "places",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    SpotId = table.Column<int>(type: "int", nullable: true),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImageName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageName = table.Column<string>(type: "nvarchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_places", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "spots",
-                columns: table => new
-                {
-                    SpotId = table.Column<int>(type: "int", nullable: false),
-                    SpotLocation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PackageID = table.Column<int>(type: "int", nullable: true),
-                    ImageName = table.Column<string>(type: "nvarchar(100)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_spots", x => x.SpotId);
                 });
 
             migrationBuilder.CreateTable(
@@ -65,14 +68,14 @@ namespace KaniniTourism.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Aadharnumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<long>(type: "bigint", nullable: true),
-                    AgencyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AgencyDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Aadharnumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone = table.Column<long>(type: "bigint", nullable: false),
+                    AgencyName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    AgencyDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -85,14 +88,14 @@ namespace KaniniTourism.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Token = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<long>(type: "bigint", nullable: true),
-                    AgencyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AgencyDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone = table.Column<long>(type: "bigint", nullable: false),
+                    AgencyName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    AgencyDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     Aadharnumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -103,15 +106,35 @@ namespace KaniniTourism.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "spots",
+                columns: table => new
+                {
+                    SpotId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PlaceId = table.Column<int>(type: "int", nullable: false),
+                    SpotLocation = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageName = table.Column<string>(type: "nvarchar(100)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_spots", x => x.SpotId);
+                    table.ForeignKey(
+                        name: "FK_spots_places_PlaceId",
+                        column: x => x.PlaceId,
+                        principalTable: "places",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "imageGallery",
                 columns: table => new
                 {
                     AdminImgsId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Id = table.Column<int>(type: "int", nullable: true),
-                    LocationName = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    Locationdescription = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    ImageName = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    LocationName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LocationDescription = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ImageName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -130,21 +153,22 @@ namespace KaniniTourism.Migrations
                 {
                     PackageID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Id = table.Column<int>(type: "int", nullable: true),
-                    OfferType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    OfferDesc = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    In_Out_India = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImageName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PricePerPerson = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Source = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Destination = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    VehicleType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Days = table.Column<int>(type: "int", nullable: true),
-                    Nights = table.Column<int>(type: "int", nullable: true),
-                    Totaldays = table.Column<int>(type: "int", nullable: true),
-                    ItineraryDetails = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HotelId = table.Column<int>(type: "int", nullable: true),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    OfferType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OfferDesc = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    In_Out_India = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageName = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    PricePerPerson = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Source = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VehicleType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Days = table.Column<int>(type: "int", nullable: false),
+                    Nights = table.Column<int>(type: "int", nullable: false),
+                    Totaldays = table.Column<int>(type: "int", nullable: false),
+                    ItineraryDetails = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PlaceId = table.Column<int>(type: "int", nullable: false),
+                    HotelId = table.Column<int>(type: "int", nullable: false),
                     HotelsHotelId = table.Column<int>(type: "int", nullable: true),
                     UserId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -156,6 +180,12 @@ namespace KaniniTourism.Migrations
                         column: x => x.HotelsHotelId,
                         principalTable: "hotels",
                         principalColumn: "HotelId");
+                    table.ForeignKey(
+                        name: "FK_packages_places_PlaceId",
+                        column: x => x.PlaceId,
+                        principalTable: "places",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_packages_users_UserId",
                         column: x => x.UserId,
@@ -169,11 +199,11 @@ namespace KaniniTourism.Migrations
                 {
                     BookId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Id = table.Column<int>(type: "int", nullable: true),
-                    StartDate = table.Column<DateTime>(type: "date", nullable: true),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "date", nullable: false),
                     AdultCount = table.Column<int>(type: "int", nullable: true),
                     ChildCount = table.Column<int>(type: "int", nullable: true),
-                    PackageID = table.Column<int>(type: "int", nullable: true),
+                    PackageID = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -183,7 +213,8 @@ namespace KaniniTourism.Migrations
                         name: "FK_bookings_packages_PackageID",
                         column: x => x.PackageID,
                         principalTable: "packages",
-                        principalColumn: "PackageID");
+                        principalColumn: "PackageID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_bookings_users_UserId",
                         column: x => x.UserId,
@@ -198,7 +229,8 @@ namespace KaniniTourism.Migrations
                     TranactionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BookId = table.Column<int>(type: "int", nullable: false),
-                    status = table.Column<int>(type: "int", nullable: true),
+                    Status = table.Column<int>(type: "int", nullable: true),
+                    TotalAmount = table.Column<double>(type: "float", nullable: true),
                     BookingBookId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -232,9 +264,19 @@ namespace KaniniTourism.Migrations
                 column: "HotelsHotelId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_packages_PlaceId",
+                table: "packages",
+                column: "PlaceId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_packages_UserId",
                 table: "packages",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_spots_PlaceId",
+                table: "spots",
+                column: "PlaceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_transaction_BookingBookId",
@@ -246,10 +288,10 @@ namespace KaniniTourism.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "imageGallery");
+                name: "feedbacks");
 
             migrationBuilder.DropTable(
-                name: "places");
+                name: "imageGallery");
 
             migrationBuilder.DropTable(
                 name: "spots");
@@ -268,6 +310,9 @@ namespace KaniniTourism.Migrations
 
             migrationBuilder.DropTable(
                 name: "hotels");
+
+            migrationBuilder.DropTable(
+                name: "places");
 
             migrationBuilder.DropTable(
                 name: "users");

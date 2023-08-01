@@ -9,11 +9,12 @@ namespace KaniniTourism.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TranactionId { get; set; }
 
-        [ForeignKey("Book")]
+        [ForeignKey("Booking")]
         public int BookId { get; set; }
-        public int? status { get; set; }
 
+        [Range(0, 1, ErrorMessage = "Status must be either 0 or 1.")]
+        public int? Status { get; set; }
 
-
+        public double? TotalAmount { get; set; }
     }
 }

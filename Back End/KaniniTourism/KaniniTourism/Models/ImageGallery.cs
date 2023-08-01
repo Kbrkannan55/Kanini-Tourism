@@ -1,26 +1,29 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace KaniniTourism.Models
 {
     public class ImageGallery
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AdminImgsId { get; set; }
 
-        [ForeignKey("Admin_User")]
-        public int? Id { get; set; }
-
-        [Column(TypeName = "nvarchar(50)")]
+        [Required(ErrorMessage = "Location name is required.")]
+        [StringLength(50, ErrorMessage = "Location name cannot exceed 50 characters.")]
         public string? LocationName { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
-        public string? Locationdescription { get; set; }
+        [Required(ErrorMessage = "Location description is required.")]
+        [StringLength(50, ErrorMessage = "Location description cannot exceed 50 characters.")]
+        public string? LocationDescription { get; set; }
 
-        [Column(TypeName = "nvarchar(100)")]
+        [Required(ErrorMessage = "Image name is required.")]
+        [StringLength(100, ErrorMessage = "Image name cannot exceed 100 characters.")]
         public string? ImageName { get; set; }
 
         [NotMapped]
+        [Required(ErrorMessage = "Please upload an image.")]
         public IFormFile? ImageFile { get; set; }
 
         [NotMapped]

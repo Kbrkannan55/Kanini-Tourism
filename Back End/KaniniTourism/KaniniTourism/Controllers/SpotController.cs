@@ -8,17 +8,18 @@ namespace KaniniTourism.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ImagesController : ControllerBase
+    public class SpotController : ControllerBase
     {
         private readonly TourismContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ImagesController(TourismContext context, IWebHostEnvironment hostEnvironment)
+        public SpotController(TourismContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
             this._hostEnvironment = hostEnvironment;
         }
 
+        // GET: api/Employee
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Place>>> GetEmployees()
         {
@@ -32,9 +33,6 @@ namespace KaniniTourism.Controllers
                 .ToListAsync();
         }
 
-
-
-
         [HttpPost]
         public async Task<ActionResult<Place>> PostEmployeeModel([FromForm] Place employeeModel)
         {
@@ -44,6 +42,7 @@ namespace KaniniTourism.Controllers
 
             return StatusCode(201);
         }
+
 
 
         [NonAction]
@@ -59,6 +58,12 @@ namespace KaniniTourism.Controllers
             return imageName;
         }
 
-
+        [NonAction]
+        public void DeleteImage(string imageName)
+        {
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+        }
     }
 }

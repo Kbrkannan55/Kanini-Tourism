@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vP0Qp/40rWPHzvN8frdVgL6IE6nnRX+WVmyM+rrHKwBnewVGa/VoYTcCyAwNJSa68z8LFpMWPyBbxHEEARj0jQ==",
+  "dgSpecHash": "GdnteMZRRa2hm/zPSRIbFIikxejB83ChWagXQcBPz1e16wODQXcmssuaoyTl0nvThNSUcOO9dqfMXMHG1hmiRQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\kbrka\\OneDrive\\Desktop\\practical training\\Kanini Tourism Website\\Back End\\KaniniTourism\\KaniniTourism\\KaniniTourism.csproj",
   "expectedPackageFiles": [
@@ -234,7 +234,10 @@
     "C:\\Users\\kbrka\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\kbrka\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\kbrka\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\kbrka\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\kbrka\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\kbrka\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\kbrka\\.nuget\\packages\\xunit.extensibility.core\\2.5.0\\xunit.extensibility.core.2.5.0.nupkg.sha512",
+    "C:\\Users\\kbrka\\.nuget\\packages\\xunit.extensibility.execution\\2.5.0\\xunit.extensibility.execution.2.5.0.nupkg.sha512"
   ],
   "logs": []
 }

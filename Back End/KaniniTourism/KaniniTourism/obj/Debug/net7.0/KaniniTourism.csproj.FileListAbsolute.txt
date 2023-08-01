@@ -253,3 +253,6 @@ C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back E
 C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\KaniniTourism\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\KaniniTourism\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\KaniniTourism\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\KaniniTourism\bin\Debug\net7.0\xunit.abstractions.dll
+C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\KaniniTourism\bin\Debug\net7.0\xunit.core.dll
+C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\KaniniTourism\bin\Debug\net7.0\xunit.execution.dotnet.dll
