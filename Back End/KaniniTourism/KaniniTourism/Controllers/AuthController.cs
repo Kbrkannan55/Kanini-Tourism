@@ -1,16 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using loginauth.Context;
-using System;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Text;
-using loginauth.Models;
 using Microsoft.EntityFrameworkCore;
 using loginauth.Models.Dto;
 using loginauth.Helpers;

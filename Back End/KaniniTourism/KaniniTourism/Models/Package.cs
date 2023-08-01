@@ -9,6 +9,7 @@ namespace KaniniTourism.Models
     public class Package
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? PackageID { get; set; }
 
         [Required(ErrorMessage = "User ID is required.")]
