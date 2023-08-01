@@ -14,6 +14,7 @@ using loginauth.Models;
 using Microsoft.EntityFrameworkCore;
 using loginauth.Models.Dto;
 using loginauth.Helpers;
+using KaniniTourism.Models;
 
 namespace loginauth.Controllers
 {

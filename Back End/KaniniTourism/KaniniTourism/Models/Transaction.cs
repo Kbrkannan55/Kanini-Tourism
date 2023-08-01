@@ -1,14 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace KaniniTourism.Models
 {
     public class Transaction
     {
         [Key]
-        public int? Id { get; set; }
-        public bool? Status { get; set; }
-        [ForeignKey("Booking")]
-        public int? BookingId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int TranactionId { get; set; }
+
+        [ForeignKey("Book")]
+        public int BookId { get; set; }
+        public int? status { get; set; }
+
+
+
     }
 }

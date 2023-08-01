@@ -27,8 +27,8 @@ namespace Imageupload.Controllers
                 .Select(x => new Place()
                 {
                     Id = x.Id,
-                    PlaceName = x.PlaceName,
-                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.PlaceName)
+                    ImageName = x.ImageName,
+                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
                 })
                 .ToListAsync();
         }
@@ -58,10 +58,10 @@ namespace Imageupload.Controllers
                 return BadRequest();
             }
 
-            if (employeeModel.PlaceImage != null)
+            if (employeeModel.ImageFile != null)
             {
-                DeleteImage(employeeModel.PlaceName);
-                employeeModel.PlaceName = await SaveImage(employeeModel.PlaceImage);
+                DeleteImage(employeeModel.ImageName);
+                employeeModel.ImageName = await SaveImage(employeeModel.ImageFile);
             }
 
             _context.Entry(employeeModel).State = EntityState.Modified;
@@ -91,7 +91,7 @@ namespace Imageupload.Controllers
         [HttpPost]
         public async Task<ActionResult<Place>> PostEmployeeModel([FromForm] Place employeeModel)
         {
-            employeeModel.PlaceName = await SaveImage(employeeModel.PlaceImage);
+            employeeModel.ImageName = await SaveImage(employeeModel.ImageFile);
             _context.places.Add(employeeModel);
             await _context.SaveChangesAsync();
 
@@ -107,7 +107,7 @@ namespace Imageupload.Controllers
             {
                 return NotFound();
             }
-            DeleteImage(employeeModel.PlaceName);
+            DeleteImage(employeeModel.ImageName);
             _context.places.Remove(employeeModel);
             await _context.SaveChangesAsync();
 

@@ -15,6 +15,10 @@ namespace loginauth.Context
         public DbSet<Spot> spots { get; set; }
         public DbSet<Transaction> transaction { get; set; }
 
+        public DbSet<TravelAgent> travelAgents { get; set; }
+        public DbSet<ImageGallery> imageGallery { get; set; }
+        public DbSet<Feedback> feedbacks { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

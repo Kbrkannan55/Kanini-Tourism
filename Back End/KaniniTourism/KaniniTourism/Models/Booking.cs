@@ -1,6 +1,5 @@
-﻿using loginauth.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KaniniTourism.Models
 {
@@ -8,20 +7,22 @@ namespace KaniniTourism.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int BookId { get; set; }
+
+        [ForeignKey("Admin_User")]
         public int? Id { get; set; }
-        [Column(TypeName ="Date")]
+
+        [Column(TypeName = "date")]
         public DateTime? StartDate { get; set; }
 
-        [ForeignKey("User")]
-        public string? Username { get; set; }
+        public int? AdultCount { get; set; }
+        public int? ChildCount { get; set; }
 
-        [ForeignKey("Package")]
-        public int? PackageId { get; set; }
+        [ForeignKey("PackageOffering")]
+        public int? PackageID { get; set; }
 
-        public Decimal? TotalAmount { get; set; }
+        public ICollection<Transaction>? Transactions { get; set; } = new List<Transaction>();
 
-
-        public ICollection<Transaction>? Transactions { get; set; }
 
     }
 }

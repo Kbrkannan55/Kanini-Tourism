@@ -1,19 +1,26 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace KaniniTourism.Models
 {
     public class Place
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int? Id { get; set; }
-        public string? PlaceName { get; set; }
+
+        [ForeignKey("Spot")]
+        public int? SpotId { get; set; }
+
+        public string? Location { get; set; }
+
+        public string? Description { get; set; }
+        public string? ImageName { get; set; }
+
         [NotMapped]
-        public IFormFile? PlaceImage { get; set; }
+        public IFormFile? ImageFile { get; set; }
+
         [NotMapped]
         public string? ImageSrc { get; set; }
-
-        public ICollection<Package>? Packages { get; set; }
     }
 }

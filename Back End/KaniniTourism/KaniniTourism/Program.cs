@@ -1,3 +1,7 @@
+using KaniniTourism.Repository.BookingServices;
+using KaniniTourism.Repository.PackageServices;
+using KaniniTourism.Repository.TransactionServices;
+using KaniniTourism.Repository.TravelAgentRequest;
 using loginauth.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +20,10 @@ builder.Services.AddDbContext<TourismContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("SQLConnection"));
 });
+builder.Services.AddScoped<IBookingServices, BookingServices>();
+builder.Services.AddScoped<IPackageServices, PackageServices>();
+builder.Services.AddScoped<ITransactionServices, TransactionServices>();
+builder.Services.AddScoped<ITravelServices, TravelServices>();
 
 builder.Services.AddAuthentication(x =>
 {

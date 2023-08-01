@@ -21,7 +21,7 @@ namespace KaniniTourism.Controllers
         [HttpPost]
         public async Task<ActionResult<Place>> PostEmployeeModel([FromForm] Place employeeModel)
         {
-            employeeModel.PlaceName = await SaveImage(employeeModel.PlaceImage);
+            employeeModel.ImageName = await SaveImage(employeeModel.ImageFile);
             _context.places.Add(employeeModel);
             await _context.SaveChangesAsync();
 
