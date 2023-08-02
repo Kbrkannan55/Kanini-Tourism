@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace KaniniTourism.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class FinalModel : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -71,11 +71,9 @@ namespace KaniniTourism.Migrations
                     Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Aadharnumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<long>(type: "bigint", nullable: false),
-                    AgencyName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    AgencyDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,9 +92,7 @@ namespace KaniniTourism.Migrations
                     Token = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<long>(type: "bigint", nullable: false),
-                    AgencyName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    AgencyDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    Aadharnumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RefreshTokenExpiryTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -154,10 +150,8 @@ namespace KaniniTourism.Migrations
                     PackageID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Id = table.Column<int>(type: "int", nullable: false),
-                    OfferType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OfferDesc = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    In_Out_India = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImageName = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    PackageType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PricePerPerson = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Source = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Destination = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -229,7 +223,7 @@ namespace KaniniTourism.Migrations
                     TranactionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BookId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: true),
+                    Status = table.Column<int>(type: "int", nullable: false),
                     TotalAmount = table.Column<double>(type: "float", nullable: true),
                     BookingBookId = table.Column<int>(type: "int", nullable: true)
                 },

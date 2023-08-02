@@ -9,14 +9,14 @@ namespace KaniniTourism.Controllers
     [ApiController]
     public class FeedbackController : ControllerBase
     {
-        private readonly IFeedbackServices _context;
+        private readonly IFeedbackRepo _context;
 
-        public FeedbackController(IFeedbackServices context)
+        public FeedbackController(IFeedbackRepo context)
         {
             _context = context;
         }
 
-      /*  [HttpGet]
+        [HttpGet]
         public async Task<ActionResult<List<Feedback>>> GetAllFeedback()
         {
             try
@@ -42,6 +42,6 @@ namespace KaniniTourism.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }*/
+        }
     }
 }

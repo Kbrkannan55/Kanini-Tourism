@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KaniniTourism.Repository.TransactionServices
 {
-    public class TransactionServices : ITransactionServices
+    public class TransactionRepo : ITransactionRepo
     {
         private readonly TourismContext _context;
-        public TransactionServices(TourismContext context)
+        public TransactionRepo(TourismContext context)
         {
             _context = context;
         }

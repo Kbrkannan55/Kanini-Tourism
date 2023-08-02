@@ -21,9 +21,6 @@ namespace KaniniTourism.Models
         [StringLength(100, MinimumLength = 6, ErrorMessage = "Password must be at least 6 characters.")]
         public string? Password { get; set; }
 
-        [Required(ErrorMessage = "Aadhar number is required.")]
-        [RegularExpression(@"^\d{12}$", ErrorMessage = "Invalid Aadhar number.")]
-        public string? Aadharnumber { get; set; }
 
         [Required(ErrorMessage = "Role is required.")]
         public string? Role { get; set; }
@@ -34,10 +31,6 @@ namespace KaniniTourism.Models
 
         [Required(ErrorMessage = "Agency name is required.")]
         [StringLength(100, ErrorMessage = "Agency name cannot exceed 100 characters.")]
-        public string? AgencyName { get; set; }
-
-        [Required(ErrorMessage = "Agency description is required.")]
-        [StringLength(500, ErrorMessage = "Agency description cannot exceed 500 characters.")]
-        public string? AgencyDescription { get; set; }
+        public string? Name { get; set; }
     }
 }

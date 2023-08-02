@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KaniniTourism.Repository.PackageServices
 {
-    public class PackageServices : IPackageServices
+    public class PackageRepo : IPackageRepo
     {
         private readonly TourismContext _context;
-        public PackageServices(TourismContext context)
+        public PackageRepo(TourismContext context)
         {
             _context = context;
         }

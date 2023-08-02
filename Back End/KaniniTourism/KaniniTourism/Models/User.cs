@@ -32,15 +32,13 @@ namespace KaniniTourism.Models
         [RegularExpression(@"^\d{10}$", ErrorMessage = "Invalid phone number.")]
         public long? Phone { get; set; }
 
-      
+        [Required(ErrorMessage ="Name is Required")]
         [StringLength(100, ErrorMessage = "Agency name cannot exceed 100 characters.")]
-        public string? AgencyName { get; set; }
+        public string? Name { get; set; }
 
-        [StringLength(500, ErrorMessage = "Agency description cannot exceed 500 characters.")]
-        public string? AgencyDescription { get; set; }
 
-        [RegularExpression(@"^\d{12}$", ErrorMessage = "Invalid Aadhar number.")]
-        public string? Aadharnumber { get; set; }
+
+
 
         public string? RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }

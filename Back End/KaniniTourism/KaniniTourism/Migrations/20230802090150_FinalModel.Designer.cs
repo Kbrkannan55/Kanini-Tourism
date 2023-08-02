@@ -12,8 +12,8 @@ using loginauth.Context;
 namespace KaniniTourism.Migrations
 {
     [DbContext(typeof(TourismContext))]
-    [Migration("20230801125453_init")]
-    partial class init
+    [Migration("20230802090150_FinalModel")]
+    partial class FinalModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -179,6 +179,10 @@ namespace KaniniTourism.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Destination")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -194,14 +198,6 @@ namespace KaniniTourism.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("In_Out_India")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ItineraryDetails")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -214,11 +210,7 @@ namespace KaniniTourism.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("OfferDesc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OfferType")
+                    b.Property<string>("PackageType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -323,6 +315,7 @@ namespace KaniniTourism.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("Status")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<double?>("TotalAmount")
@@ -343,23 +336,14 @@ namespace KaniniTourism.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Aadharnumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AgencyDescription")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("AgencyName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -392,20 +376,14 @@ namespace KaniniTourism.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Aadharnumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AgencyDescription")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("AgencyName")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Password")
                         .IsRequired()

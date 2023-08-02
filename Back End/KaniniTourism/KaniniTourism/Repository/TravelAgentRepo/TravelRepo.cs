@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KaniniTourism.Repository.TravelAgentRequest
 {
-    public class TravelServices : ITravelServices
+    public class TravelRepo : ITravelRepo
     {
         private readonly TourismContext _context;
-        public TravelServices(TourismContext context)
+        public TravelRepo(TourismContext context)
         {
             _context = context;
         }

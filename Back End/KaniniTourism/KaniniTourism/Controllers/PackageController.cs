@@ -9,8 +9,8 @@ namespace KaniniTourism.Controllers
     [ApiController]
     public class PackageController : ControllerBase
     {
-        private readonly IPackageServices _context;
-        public PackageController(IPackageServices context)
+        private readonly IPackageRepo _context;
+        public PackageController(IPackageRepo context)
         {
             _context = context;
         }

@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KaniniTourism.Repository.BookingServices
 {
-    public class BookingServices : IBookingServices
+    public class BookingRepo : IBookingRepo
     {
         private readonly TourismContext _context;
-        public BookingServices(TourismContext context)
+        public BookingRepo(TourismContext context)
         {
             _context = context;
         }
@@ -18,6 +18,7 @@ namespace KaniniTourism.Repository.BookingServices
         {
             var details = await _context.bookings.ToListAsync();
             return details;
+
         }
 
 

@@ -12,9 +12,10 @@ namespace KaniniTourism.Models
         [ForeignKey("Booking")]
         public int BookId { get; set; }
 
+        [Required(ErrorMessage ="Total Amount is Required")]
         [Range(0, 1, ErrorMessage = "Status must be either 0 or 1.")]
         public int? Status { get; set; }
-
+        
         public double? TotalAmount { get; set; }
     }
 }

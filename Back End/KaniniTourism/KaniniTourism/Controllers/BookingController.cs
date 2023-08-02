@@ -2,6 +2,7 @@
 using KaniniTourism.Repository.BookingServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace KaniniTourism.Controllers
 {
@@ -9,8 +10,8 @@ namespace KaniniTourism.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        private readonly IBookingServices _context;
-        public BookingController(IBookingServices context)
+        private readonly IBookingRepo _context;
+        public BookingController(IBookingRepo context)
         {
             _context = context;
         }
@@ -21,6 +22,7 @@ namespace KaniniTourism.Controllers
             try
             {
                 return await _context.GetAllBookings();
+                Log.Information("All Bookings");
             }
             catch (Exception ex)
             {
@@ -35,6 +37,7 @@ namespace KaniniTourism.Controllers
             try
             {
                 return await _context.PostBookings(booking);
+                Log.Information("Posting Bookings :{booking}", booking);
             }
             catch(Exception ex)
             {

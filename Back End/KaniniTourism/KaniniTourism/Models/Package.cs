@@ -17,17 +17,10 @@ namespace KaniniTourism.Models
         public int? Id { get; set; }
 
         [Required(ErrorMessage = "Offer type is required.")]
-        public string? OfferType { get; set; }
+        public string? PackageType { get; set; }
 
         [Required(ErrorMessage = "Offer description is required.")]
-        public string? OfferDesc { get; set; }
-
-        [Required(ErrorMessage = "In/Out India is required.")]
-        public string? In_Out_India { get; set; }
-
-        [Column(TypeName = "nvarchar(100)")]
-        [Required(ErrorMessage = "Image name is required.")]
-        public string? ImageName { get; set; }
+        public string? Description { get; set; }
 
         [Required(ErrorMessage = "Price per person is required.")]
         public string? PricePerPerson { get; set; }
@@ -68,12 +61,6 @@ namespace KaniniTourism.Models
         [ForeignKey("Hotel")]
         public int? HotelId { get; set; }
 
-        [NotMapped]
-        [Required(ErrorMessage = "Please upload an image.")]
-        public IFormFile? ImageFile { get; set; }
-
-        [NotMapped]
-        public string? ImageSrc { get; set; }
 
         public ICollection<Booking>? Booking { get; set; } = new List<Booking>();
     }

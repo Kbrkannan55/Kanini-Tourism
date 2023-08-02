@@ -9,8 +9,8 @@ namespace KaniniTourism.Controllers
     [ApiController]
     public class TransactionController : ControllerBase
     {
-        private readonly ITransactionServices _context;
-        public TransactionController(ITransactionServices context)
+        private readonly ITransactionRepo _context;
+        public TransactionController(ITransactionRepo context)
         {
             _context = context;
         }

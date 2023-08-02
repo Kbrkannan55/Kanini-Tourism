@@ -9,8 +9,8 @@ namespace KaniniTourism.Controllers
     [ApiController]
     public class TravelAgentController : ControllerBase
     {
-        private readonly ITravelServices _context;
-        public TravelAgentController(ITravelServices context)
+        private readonly ITravelRepo _context;
+        public TravelAgentController(ITravelRepo context)
         {
             _context = context;
         }

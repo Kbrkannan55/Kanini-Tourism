@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KaniniTourism.Repository.TransactionServices
 {
-    public interface ITransactionServices
+    public interface ITransactionRepo
     {
         Task<ActionResult<List<Transaction>>> GetAllTransaction();
         Task<ActionResult<List<Transaction>>> PostTransaction(Transaction transaction);
