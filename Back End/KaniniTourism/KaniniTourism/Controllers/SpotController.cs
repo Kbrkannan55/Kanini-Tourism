@@ -20,21 +20,21 @@ namespace KaniniTourism.Controllers
         }
 
         // GET: api/Employee
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Place>>> GetEmployees()
+ /*       [HttpGet]
+        public async Task<ActionResult<IEnumerable<Spot>>> GetEmployees()
         {
-            return await _context.places
+            return await _context.spots
                 .Select(x => new Place()
                 {
-                    Id = x.Id,
+                    Id = x.SpotId,
                     ImageName = x.ImageName,
                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
                 })
                 .ToListAsync();
-        }
+        }*/
 
         [HttpPost]
-        public async Task<ActionResult<Place>> PostEmployeeModel([FromForm] Place employeeModel)
+        public async Task<ActionResult<Spot>> PostEmployeeModel([FromForm] Place employeeModel)
         {
             employeeModel.ImageName = await SaveImage(employeeModel.ImageFile);
             _context.places.Add(employeeModel);

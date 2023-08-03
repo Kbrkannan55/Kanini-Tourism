@@ -22,7 +22,7 @@ namespace KaniniTourism.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Place>>> GetAllPlace()
         {
-            return await _context.GetAllPlace();
+            /*return await _context.GetAllPlace();*/
             return await _context.places
                 .Select(x => new Place()
                 {
@@ -39,7 +39,7 @@ namespace KaniniTourism.Controllers
         [HttpPost]
         public async Task<ActionResult<Place>> PostEmployeeModel([FromForm] Place employeeModel)
         {
-            return await _context.PostPlace(employeeModel);
+         /*   return await _context.PostPlace(employeeModel);*/
             employeeModel.ImageName = await SaveImage(employeeModel.ImageFile);
             _context.places.Add(employeeModel);
             await _context.SaveChangesAsync();

@@ -43,5 +43,19 @@ namespace KaniniTourism.Controllers
             }
         }
 
+
+        [HttpDelete]
+        public async Task<ActionResult<List<TravelAgent>>> DeleteTravelAgent(int id)
+        {
+            try
+            {
+                return await _context.DeleteTravelAgent(id);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

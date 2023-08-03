@@ -2,6 +2,7 @@
 using loginauth.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 
 namespace KaniniTourism.Repository.TravelAgentRequest
 {
@@ -26,6 +27,16 @@ namespace KaniniTourism.Repository.TravelAgentRequest
             _context.Add(travelAgent);
             await _context.SaveChangesAsync();
             return await _context.travelAgents.ToListAsync();
+        }
+
+
+        public async Task<ActionResult<List<TravelAgent>>> DeleteTravelAgent(int id)
+        {
+          var details= _context.travelAgents.Find(id);
+             _context.Remove(details);
+            await _context.SaveChangesAsync();
+            return await _context.travelAgents.ToListAsync();
+
         }
     }
 }

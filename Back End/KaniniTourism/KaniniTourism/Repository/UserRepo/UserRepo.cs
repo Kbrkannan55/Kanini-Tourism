@@ -42,14 +42,13 @@ namespace KaniniTourism.Repository.UserRepo
 
             //password hash method from helper folder
             userObj.Password = PasswordHash.HashPassword(userObj.Password);
-            userObj.Role = "Admin";
             userObj.Token = "";
             await _context.AddAsync(userObj);
             await _context.SaveChangesAsync();
             return new OkObjectResult(new
             {
                 Status = 200,
-                Message = "Admin Added!"
+                Message = "Added Successfully!"
             });
         }
 

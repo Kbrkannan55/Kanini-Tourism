@@ -7,5 +7,6 @@ namespace KaniniTourism.Repository.TravelAgentRequest
     {
         Task<ActionResult<List<TravelAgent>>> GetAllTravelAgentRequest();
         Task<ActionResult<List<TravelAgent>>> PostRequestForTravelAgent(TravelAgent travelAgent);
+        Task<ActionResult<List<TravelAgent>>> DeleteTravelAgent(int id);
     }
 }

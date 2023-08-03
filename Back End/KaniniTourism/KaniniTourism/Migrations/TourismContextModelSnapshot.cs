@@ -378,7 +378,6 @@ namespace KaniniTourism.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -388,7 +387,6 @@ namespace KaniniTourism.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<long?>("Phone")
-                        .IsRequired()
                         .HasColumnType("bigint");
 
                     b.Property<string>("RefreshToken")
@@ -398,14 +396,12 @@ namespace KaniniTourism.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Role")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Token")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 

@@ -1,0 +1,104 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+.total-div{
+    font-size: 14px;
+    border-top: solid 2px grey;
+    border-radius: 50px;
+    padding-top: 20px;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    padding: 30px 0;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-top-word {
+    text-align: center;
+}
+
+.footer-top-word p {
+    font-weight: bold;
+}
+
+.footer-end {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-end > div {
+    flex: 1;
+    max-width: 200px;
+    margin: 0 10px;
+}
+
+.footer-end p {
+    margin: 5px 0;
+}
+
+.theend {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.paymentmethods {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.paymentmethods div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.paymentmethods div::before,
+.paymentmethods div::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #999;
+}
+
+.paymentmethods div::before {
+    margin-right: 20px;
+}
+
+.paymentmethods div::after {
+    margin-left: 20px;
+}
+
+.paymentmethods div span {
+    padding: 0 10px;
+    color: #555;
+}
+
+.paymentmethods div::first-child::before,
+.paymentmethods div::last-child::after {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-end {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-end > div {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}
