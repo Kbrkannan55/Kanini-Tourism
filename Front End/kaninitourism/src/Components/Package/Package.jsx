@@ -34,15 +34,15 @@ const Package = () => {
     setDestination(event.target.value);
   };
 
-  const filterPackages = () => {
-    const filteredPackages = packages.filter((pkg) => {
-      return (
-        pkg.packageType.toLowerCase().includes(search.toLowerCase()) &&
-        pkg.destination.toLowerCase().includes(destination.toLowerCase())
+  const filterPackages = async () => {
+    try {
+      const response = await axios.get(
+        `https://localhost:7050/api/Package/GetFilteredDetails?type=${search}&desti=${destination}`
       );
-    });
-
-    setPackages(filteredPackages);
+      setPackages(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const openModal = (packageData) => {

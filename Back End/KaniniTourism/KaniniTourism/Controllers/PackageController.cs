@@ -44,7 +44,18 @@ namespace KaniniTourism.Controllers
             }
         }
 
-
+        [HttpGet("GetFilteredDetails")]
+        public async Task<ActionResult<List<Package>>> GetFiltedPackages(string type, string desti)
+        {
+            try
+            {
+                return await _context.GetFiltedPackages(type,desti);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     
     }
 }
