@@ -37,7 +37,6 @@ namespace KaniniTourism.Controllers
             try
             {
                 return await _context.PostBookings(booking);
-                Log.Information("Posting Bookings :{booking}", booking);
             }
             catch(Exception ex)
             {

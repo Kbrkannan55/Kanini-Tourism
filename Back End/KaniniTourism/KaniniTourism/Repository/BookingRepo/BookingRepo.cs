@@ -24,7 +24,7 @@ namespace KaniniTourism.Repository.BookingServices
 
         public async Task<ActionResult<List<Booking>>> PostBookings(Booking booking)
         {
-            _context.Add(booking);
+            _context.bookings.Add(booking);
             await _context.SaveChangesAsync();
             return  _context.bookings.ToList();
         }

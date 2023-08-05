@@ -21,6 +21,7 @@ import CRUDgallery from './Components/AdminImages/ShowAdminImage';
 import Hotel from './Components/Hotel/Hotel';
 import ShowHotel from './Components/Hotel/ShowHotel';
 import Package from './Components/Package/Package';
+import Booking from './Components/Booking/Booking';
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
       {/* <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> */}
       <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet"></link>
-
+      <Booking/>
       {/* <Home/> */}
       {/* <Navbar/> */}
       {/* <Register/> */}
