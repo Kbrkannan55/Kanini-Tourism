@@ -19,37 +19,40 @@ import AdminImage from './Components/AdminImages/AdminImage';
 import ShowSpot from './Components/Spot/ShowSpot';
 import CRUDgallery from './Components/AdminImages/ShowAdminImage';
 import Hotel from './Components/Hotel/Hotel';
+import ShowHotel from './Components/Hotel/ShowHotel';
+import Package from './Components/Package/Package';
 
 
 function App() {
-  
+
   return (
     <>
-    {/* <link rel="preconnect" href="https://fonts.googleapis.com">
+      {/* <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> */}
-<link href="https://fonts.googleapis.com/css2?family=Manrope&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet"></link>
- 
-    {/* <Home/> */}
-    {/* <Navbar/> */}
-    {/* <Register/> */}
-    {/* <Login/> */}
-    {/* <Home/> */}
-    {/* <TravelAgentPage/> */}
-    {/* <RegistrationForm/> */}
-    {/* <RegistrationFormforAgent/> */}
-    {/* <Adminpage/> */}
-    {/* <AvailableAgencies/> */}
-    {/* <Feedback/> */}
-    {/* <AdminImage/> */}
-    {/* <ShowSpot/> */}
-    {/* <ShowPlace/> */}
-    {/* <Place/> */}
-    {/* <CRUDgallery/> */}
-    {/* <Hotel/> */}
-    <ShowSpot/>
-    {/* <Payment/> */}
-    {/* <Chatbot/> */}
-    
+      <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet"></link>
+
+      {/* <Home/> */}
+      {/* <Navbar/> */}
+      {/* <Register/> */}
+      {/* <Login/> */}
+      {/* <Home/> */}
+      {/* <TravelAgentPage/> */}
+      {/* <RegistrationForm/> */}
+      {/* <RegistrationFormforAgent/> */}
+      {/* <Adminpage/> */}
+      {/* <AvailableAgencies/> */}
+      {/* <Feedback/> */}
+      {/* <AdminImage/> */}
+      {/* <ShowSpot/> */}
+      {/* <ShowPlace/> */}
+      {/* <Place/> */}
+      {/* <CRUDgallery/> */}
+      {/* <Hotel/> */}
+      {/* <ShowHotel/> */}
+      {/* <ShowSpot/> */}
+      {/* <Payment/> */}
+      {/* <Chatbot/> */}
+      <Package/>
     </>
   );
 }

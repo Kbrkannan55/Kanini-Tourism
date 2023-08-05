@@ -22,8 +22,8 @@ namespace KaniniTourism.Repository.PackageServices
 
         public async Task<List<Package>> PostPackages(Package package)
         {
-            var details= _context.Add(package);
-            _context.SaveChangesAsync();
+            _ = _context.packages.Add(package);
+            await _context.SaveChangesAsync();
             return await _context.packages.ToListAsync();
         }
     }

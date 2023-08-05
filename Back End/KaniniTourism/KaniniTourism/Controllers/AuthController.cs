@@ -36,10 +36,11 @@ namespace loginauth.Controllers
             }
             catch
             {
+                Log.Information("Registration Details =>{@userObj}", userObj);
                 // Return a generic error response to the client
                 return StatusCode(500, new { Message = "An error occurred while adding a user. Please try again later." });
             }
-            Log.Information("Registration Details =>{@userObj}", userObj);
+            
         }
 
         [HttpPost("authenticate")]

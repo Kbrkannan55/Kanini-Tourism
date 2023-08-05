@@ -1,0 +1,160 @@
+.Package-top-Image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .Package-whole-page{
+    font-size: 15px;
+  }
+  .search-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .search-container input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .search-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .Package-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .Package-card {
+    width: calc(33.33% - 20px);
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+
+  /* ... (existing styles) */
+
+.Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  
+  /* ... (existing styles) */
+
+.Modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 500px;
+    max-width: 90%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .Modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Close-button,
+  .Book-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .Close-button {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .Book-button {
+    background-color: #007bff;
+    color: white;
+  }
+
+    
+  .Book-button:hover {
+    background-color: #ccc;
+    color: red;
+  }
+
+
+  /* ... (existing styles) */
+
+.Modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Adjust alignment */
+    padding: 20px;
+  }
+  
+  .Modal-details {
+    margin-bottom: 15px;
+  }
+  
+  .Modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .Close-button,
+  .Book-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .Close-button {
+    background-color: #ccc;
+    color: #333;
+  }
+
+
+  .Close-button:hover{
+    background-color: #ccc;
+    color: red;
+  }
+  
+  .Book-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  
