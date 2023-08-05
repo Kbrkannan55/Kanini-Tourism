@@ -8,6 +8,18 @@ import Login from './Components/Login/Login';
 import TravelAgentPage from './Components/TravelAgentPage/TravelAgentPage';
 import RegistrationFormforAgent from './Components/RegisterForAgent/Registerforagent';
 import Adminpage from './Components/Adminpage/Adminpage';
+import AvailableAgencies from './Components/AvailableAgencies/AvailableAgencies';
+import Feedback from './Components/Feedback/Feedback';
+import Place from './Components/Places/Place';
+import ShowPlace from './Components/Places/ShowPlace';
+import Payment from './Components/Payment/Payment';
+import Chatbot from './Components/Chatbot/Chatbot';
+import GalleryImages from './Components/Places/Place';
+import AdminImage from './Components/AdminImages/AdminImage';
+import ShowSpot from './Components/Spot/ShowSpot';
+import CRUDgallery from './Components/AdminImages/ShowAdminImage';
+import Hotel from './Components/Hotel/Hotel';
+
 
 function App() {
   
@@ -16,6 +28,7 @@ function App() {
     {/* <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> */}
 <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet"></link>
+ 
     {/* <Home/> */}
     {/* <Navbar/> */}
     {/* <Register/> */}
@@ -24,7 +37,19 @@ function App() {
     {/* <TravelAgentPage/> */}
     {/* <RegistrationForm/> */}
     {/* <RegistrationFormforAgent/> */}
-    <Adminpage/>
+    {/* <Adminpage/> */}
+    {/* <AvailableAgencies/> */}
+    {/* <Feedback/> */}
+    {/* <AdminImage/> */}
+    {/* <ShowSpot/> */}
+    {/* <ShowPlace/> */}
+    {/* <Place/> */}
+    {/* <CRUDgallery/> */}
+    {/* <Hotel/> */}
+    <ShowSpot/>
+    {/* <Payment/> */}
+    {/* <Chatbot/> */}
+    
     </>
   );
 }

@@ -32,10 +32,6 @@ namespace KaniniTourism.Models
         [StringLength(100, ErrorMessage = "Agency name cannot exceed 100 characters.")]
         public string? Name { get; set; }
 
-
-
-
-
         public string? RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
 

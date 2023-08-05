@@ -8,7 +8,10 @@
     ".NETCoreApp,Version=v7.0": {
       "KaniniTourism/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNet.WebHooks.Receivers.Stripe": "1.2.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.9",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.9",
           "Microsoft.AspNetCore.OpenApi": "7.0.5",
           "Microsoft.Azure.Cosmos": "3.35.2",
           "Microsoft.EntityFrameworkCore": "7.0.9",
@@ -19,6 +22,7 @@
           "Serilog": "3.0.1",
           "Serilog.AspNetCore": "7.0.0",
           "Serilog.Sinks.Console": "4.1.0",
+          "Stripe.net": "41.26.0",
           "Swashbuckle.AspNetCore": "6.4.0",
           "xunit.extensibility.execution": "2.5.0"
         },
@@ -600,12 +604,119 @@
           }
         }
       },
+      "Microsoft.AspNet.WebApi.Client/5.2.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/net45/System.Net.Http.Formatting.dll": {
+            "assemblyVersion": "5.2.2.0",
+            "fileVersion": "5.2.20826.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebApi.Core/5.2.2": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.2"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.dll": {
+            "assemblyVersion": "5.2.2.0",
+            "fileVersion": "5.2.20826.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebHooks.Common/1.2.2": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.2.2"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Common.dll": {
+            "assemblyVersion": "1.2.2.0",
+            "fileVersion": "1.2.51204.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebHooks.Receivers/1.2.2": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.2.2",
+          "Microsoft.AspNet.WebHooks.Common": "1.2.2"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Receivers.dll": {
+            "assemblyVersion": "1.2.2.0",
+            "fileVersion": "1.2.51204.0"
+          }
+        }
+      },
+      "Microsoft.AspNet.WebHooks.Receivers.Stripe/1.2.2": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.2.2",
+          "Microsoft.AspNet.WebHooks.Common": "1.2.2",
+          "Microsoft.AspNet.WebHooks.Receivers": "1.2.2"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Receivers.Stripe.dll": {
+            "assemblyVersion": "1.2.2.0",
+            "fileVersion": "1.2.51204.0"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.9": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.21.0"
         },
         "runtime": {
           "lib/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "7.0.9.0",
+            "fileVersion": "7.0.923.32110"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Server.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "7.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Hosting.Server.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.Text.Encodings.Web": "7.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "7.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.JsonPatch/7.0.9": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.JsonPatch.dll": {
+            "assemblyVersion": "7.0.9.0",
+            "fileVersion": "7.0.923.32110"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.9": {
+        "dependencies": {
+          "Microsoft.AspNetCore.JsonPatch": "7.0.9",
+          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json.Bson": "1.0.2"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {
             "assemblyVersion": "7.0.9.0",
             "fileVersion": "7.0.923.32110"
           }
@@ -1161,7 +1272,7 @@
           }
         }
       },
-      "Microsoft.CSharp/4.5.0": {},
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Data.SqlClient/5.0.2": {
         "dependencies": {
           "Azure.Identity": "1.6.0",
@@ -1469,7 +1580,7 @@
       },
       "Microsoft.IdentityModel.Tokens/6.21.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.7.0",
           "Microsoft.IdentityModel.Logging": "6.21.0",
           "System.Security.Cryptography.Cng": "5.0.0"
         },
@@ -1692,6 +1803,17 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "Newtonsoft.Json.Bson/1.0.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.2.22727"
           }
         }
       },
@@ -1952,6 +2074,18 @@
           "lib/net5.0/Serilog.Sinks.File.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.0.0"
+          }
+        }
+      },
+      "Stripe.net/41.26.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Stripe.net.dll": {
+            "assemblyVersion": "41.26.0.0",
+            "fileVersion": "41.26.0.0"
           }
         }
       },
@@ -3170,12 +3304,89 @@
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
     },
+    "Microsoft.AspNet.WebApi.Client/5.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YVq+s0WeXrPxJk57CoElbtMYf95j76uJcW6nue3Cs4eIer9sgUp4rasSo0gALX3ls1Zf2jMceOLik9X/sJyrwA==",
+      "path": "microsoft.aspnet.webapi.client/5.2.2",
+      "hashPath": "microsoft.aspnet.webapi.client.5.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.Core/5.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P5boFqqGDq1XF7PVz1U4ju85wQLT0Pb5BbuiWy72cOmWXJKCCNqL+av6omi30knp62hpmfw+3rSCm+Nmt5zRgQ==",
+      "path": "microsoft.aspnet.webapi.core/5.2.2",
+      "hashPath": "microsoft.aspnet.webapi.core.5.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebHooks.Common/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WkzgJPYjVPXEhu2vQIZ5GkNX3pSLHMf1Er8tFY69gqikVu8f0+X0ntserOlDSMQ0FbqQZ02EFXXpPt0BomZyZg==",
+      "path": "microsoft.aspnet.webhooks.common/1.2.2",
+      "hashPath": "microsoft.aspnet.webhooks.common.1.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebHooks.Receivers/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VNWY54+y27B3Nv1BF7zw7+TTTfTlQrKybJ+KbN2gbyF8CB5Z4NGLym1GrX2v+bsEjR5glwBms63sBqVzSUlCIg==",
+      "path": "microsoft.aspnet.webhooks.receivers/1.2.2",
+      "hashPath": "microsoft.aspnet.webhooks.receivers.1.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebHooks.Receivers.Stripe/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CYCC+ivpv8A5VqeeRAqZw/mdlwXQGG/EYEB7owB0jSgflMPwIdWAMB9X7KWFph+TTcsnal1RxQLHsrlIgrrwjQ==",
+      "path": "microsoft.aspnet.webhooks.receivers.stripe/1.2.2",
+      "hashPath": "microsoft.aspnet.webhooks.receivers.stripe.1.2.2.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.9": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-sqrvj8x9e7i7QD+q4SJ0iR0rlA6az8WJl7oO5mS9lmgOaIwKKf8MEzcF5XWf/Yk6CA4akH3SnH0JB4+huKUPNg==",
       "path": "microsoft.aspnetcore.authentication.jwtbearer/7.0.9",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.7.0.9.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ubycklv+ZY7Kutdwuy1W4upWcZ6VFR8WUXU7l7B2+mvbDBBPAcfpi+E+Y5GFe+Q157YfA3C49D2GCjAZc7Mobw==",
+      "path": "microsoft.aspnetcore.hosting.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Hosting.Server.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1PMijw8RMtuQF60SsD/JlKtVfvh4NORAhF4wjysdABhlhTrYmtgssqyncR0Stq5vqtjplZcj6kbT4LRTglt9IQ==",
+      "path": "microsoft.aspnetcore.hosting.server.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
+      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.JsonPatch/7.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6iMRtYIQZj7gMC7iVotL9bZjCjnbV2ZkAAduKYHfV6v+WQhEjk0iEGSFNVh6N9rTCNTeZ2xVgv3xi675GwyDzQ==",
+      "path": "microsoft.aspnetcore.jsonpatch/7.0.9",
+      "hashPath": "microsoft.aspnetcore.jsonpatch.7.0.9.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dhAFLGV3RfK6BAbLYpTKcVch1hcyP2qDWNy7Pk2wGrQEO/yWbWwiR9c13hk5kGWcPMGeVMkcuftUo6OAHe2yIA==",
+      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/7.0.9",
+      "hashPath": "microsoft.aspnetcore.mvc.newtonsoftjson.7.0.9.nupkg.sha512"
     },
     "Microsoft.AspNetCore.OpenApi/7.0.5": {
       "type": "package",
@@ -3303,12 +3514,12 @@
       "path": "microsoft.codeanalysis.workspaces.common/4.4.0",
       "hashPath": "microsoft.codeanalysis.workspaces.common.4.4.0.nupkg.sha512"
     },
-    "Microsoft.CSharp/4.5.0": {
+    "Microsoft.CSharp/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
-      "path": "microsoft.csharp/4.5.0",
-      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.Data.SqlClient/5.0.2": {
       "type": "package",
@@ -3667,6 +3878,13 @@
       "path": "newtonsoft.json/13.0.1",
       "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
+    "Newtonsoft.Json.Bson/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
+      "path": "newtonsoft.json.bson/1.0.2",
+      "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
+    },
     "NuGet.Common/6.3.1": {
       "type": "package",
       "serviceable": true,
@@ -3904,6 +4122,13 @@
       "sha512": "sha512-uwV5hdhWPwUH1szhO8PJpFiahqXmzPzJT/sOijH/kFgUx+cyoDTMM8MHD0adw9+Iem6itoibbUXHYslzXsLEAg==",
       "path": "serilog.sinks.file/5.0.0",
       "hashPath": "serilog.sinks.file.5.0.0.nupkg.sha512"
+    },
+    "Stripe.net/41.26.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p1fg9GBd2VVrMbQtCr2OvqBlu13xbA7y6zYAiOCA2W2nLwJnnxoI4w+4fTfEuZ//Q1e7MbsBpst8E4hmPGhwMw==",
+      "path": "stripe.net/41.26.0",
+      "hashPath": "stripe.net.41.26.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",

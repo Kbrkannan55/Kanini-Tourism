@@ -11,7 +11,6 @@
     padding: 0;
     box-sizing: border-box;
     transition: all .2s;
-    text-transform: capitalize;
     text-decoration: none;
 }
 html{
@@ -292,6 +291,37 @@ html{
 }
 
 
+
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 1600px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  #myBtn:hover {
+    background-color: #555;
+  }
+  
+
+  .bottom-chat{
+    border: solid 1px grey;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: rgb(191, 236, 236);
+    box-shadow: 10px 5px 15px 10px grey;
+  }
 
 
 

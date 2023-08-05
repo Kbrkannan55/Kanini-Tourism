@@ -12,7 +12,7 @@ namespace loginauth.Context
         public DbSet<Booking> bookings { get; set; }
         public DbSet<Hotels> hotels { get; set; } 
         public DbSet<Package> packages { get; set; }
-        public DbSet<Spot> spots { get; set; }
+        public DbSet<Spot> Check { get; set; }
         public DbSet<Transaction> transaction { get; set; }
 
         public DbSet<TravelAgent> travelAgents { get; set; }

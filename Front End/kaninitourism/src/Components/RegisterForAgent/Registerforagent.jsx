@@ -60,7 +60,7 @@ const RegisterForAgent = () => {
                     // for toast message successfully
                     var user = await data.json();
                     setSuccess(true);
-                    toast.success('Registered successfully!');
+                    toast.success('Wait for Admin Approval');
                 } else {
                     toast.error('Warning !');
                 }

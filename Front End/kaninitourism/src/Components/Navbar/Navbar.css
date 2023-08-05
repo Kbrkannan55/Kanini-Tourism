@@ -63,18 +63,21 @@
   cursor: pointer;
 }
 
+
+
 .navbar-links li:hover{
   color: red;
   transform: scale(1.1);
   transition: 0.1s all;
+  
 }
 
 .navbar-links.active {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 80px;
-  left: 20px;
+  /* position: absolute; */
+  margin-top:10px;
+  margin-left: 20px;
   background-color: white;
   color: black;
   padding: 20px;
@@ -99,7 +102,7 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .navbar-links {
       display: none;
   }

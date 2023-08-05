@@ -20,7 +20,6 @@ namespace KaniniTourism.Models
         public string? SpotLocation { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
-        [Required(ErrorMessage = "Image name is required.")]
         public string? ImageName { get; set; }
 
         [NotMapped]

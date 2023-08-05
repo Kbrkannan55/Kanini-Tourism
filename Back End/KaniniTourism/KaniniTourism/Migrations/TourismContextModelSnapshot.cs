@@ -258,7 +258,6 @@ namespace KaniniTourism.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Location")
@@ -294,7 +293,7 @@ namespace KaniniTourism.Migrations
 
                     b.HasIndex("PlaceId");
 
-                    b.ToTable("spots");
+                    b.ToTable("Check");
                 });
 
             modelBuilder.Entity("KaniniTourism.Models.Transaction", b =>

@@ -2,6 +2,7 @@
 using loginauth.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
 namespace Imageupload.Controllers
@@ -13,58 +14,70 @@ namespace Imageupload.Controllers
         private readonly TourismContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
 
+
         public PlaceController(TourismContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
-            this._hostEnvironment = hostEnvironment;
+            _hostEnvironment = hostEnvironment;
         }
 
-        // GET: api/Employee
+        //to post images
+        [HttpPost]
+        public async Task<ActionResult<Place>> AddSpecialPlace([FromForm] Place allPlaces)
+        {
+            allPlaces.ImageName = await SaveImage(allPlaces.ImageFile);
+            _context.places.Add(allPlaces);
+            await _context.SaveChangesAsync();
+
+            return StatusCode(201);
+        }
+
+        //to save image
+        [NonAction]
+        public async Task<string> SaveImage(IFormFile imageFile)
+        {
+            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '-');
+            imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images/Place", imageName);
+            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(fileStream);
+            }
+            return imageName;
+        }
+
+        //to get all images
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Place>>> GetEmployees()
+        public async Task<ActionResult<IEnumerable<Place>>> GetAllDetailPlaces()
         {
             return await _context.places
                 .Select(x => new Place()
                 {
                     Id = x.Id,
+                    Location = x.Location,
+                    Description = x.Description,
                     ImageName = x.ImageName,
-                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                    ImageSrc = String.Format("{0}://{1}{2}/Images/Place/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
                 })
                 .ToListAsync();
         }
 
-        // GET: api/Employee/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Place>> GetEmployeeModel(int id)
-        {
-            var employeeModel = await _context.places.FindAsync(id);
-
-            if (employeeModel == null)
-            {
-                return NotFound();
-            }
-
-            return employeeModel;
-        }
-
-        // PUT: api/Employee/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        //to update the images with details
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployeeModel(int id, [FromForm] Place employeeModel)
+        public async Task<IActionResult> PutPlaceDetails(int id, [FromForm] Place updatePlace)
         {
-            if (id != employeeModel.Id)
+            if (id != updatePlace.Id)
             {
                 return BadRequest();
             }
 
-            if (employeeModel.ImageFile != null)
+            if (updatePlace.ImageFile != null)
             {
-                DeleteImage(employeeModel.ImageName);
-                employeeModel.ImageName = await SaveImage(employeeModel.ImageFile);
+                DeleteImage(updatePlace.ImageName);
+                updatePlace.ImageName = await SaveImage(updatePlace.ImageFile);
             }
 
-            _context.Entry(employeeModel).State = EntityState.Modified;
+            _context.Entry(updatePlace).State = EntityState.Modified;
 
             try
             {
@@ -72,7 +85,7 @@ namespace Imageupload.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EmployeeModelExists(id))
+                if (!ImageExists(id))
                 {
                     return NotFound();
                 }
@@ -85,58 +98,33 @@ namespace Imageupload.Controllers
             return NoContent();
         }
 
-        // POST: api/Employee
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<Place>> PostEmployeeModel([FromForm] Place employeeModel)
-        {
-            employeeModel.ImageName = await SaveImage(employeeModel.ImageFile);
-            _context.places.Add(employeeModel);
-            await _context.SaveChangesAsync();
-
-            return StatusCode(201);
-        }
-
-        // DELETE: api/Employee/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Place>> DeleteEmployeeModel(int id)
-        {
-            var employeeModel = await _context.places.FindAsync(id);
-            if (employeeModel == null)
-            {
-                return NotFound();
-            }
-            DeleteImage(employeeModel.ImageName);
-            _context.places.Remove(employeeModel);
-            await _context.SaveChangesAsync();
-
-            return employeeModel;
-        }
-
-        private bool EmployeeModelExists(int id)
+        //to check catch error meathod
+        private bool ImageExists(int id)
         {
             return _context.places.Any(e => e.Id == id);
         }
 
-
-        [NonAction]
-        public async Task<string> SaveImage(IFormFile imageFile)
+        //to delete images
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Place>> DeletePlaceDetail(int id)
         {
-            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '-');
-            imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
-            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
-            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            var placedetail = await _context.places.FindAsync(id);
+            if (placedetail == null)
             {
-                await imageFile.CopyToAsync(fileStream);
+                return NotFound();
             }
-            return imageName;
+            DeleteImage(placedetail.ImageName);
+            _context.places.Remove(placedetail);
+            await _context.SaveChangesAsync();
+
+            return placedetail;
         }
 
+        //delete image meathod
         [NonAction]
         public void DeleteImage(string imageName)
         {
-            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images/PlaceDetails", imageName);
             if (System.IO.File.Exists(imagePath))
                 System.IO.File.Delete(imagePath);
         }

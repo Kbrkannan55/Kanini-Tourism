@@ -17,19 +17,33 @@ import Review from '../../Assets/review.png'
 import Navbar from '../Navbar/Navbar'
 import Blog4 from '../../Assets/travel4.jpg'
 import Footer from '../Footer/Footer'
+import Chatbot from '../Chatbot/Chatbot'
 
 
 
 const Home = () => {
 
 
+  const topFunction = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
 
-  const topFunction=()=>{
-      document.body.scrollTop=0;
-      document.documentElement.scrollTop= 0;
-    
-    
-  }
+  const handleScroll = () => {
+    const myBtn = document.getElementById('myBtn');
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      myBtn.style.display = 'block';
+    } else {
+      myBtn.style.display = 'none';
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); 
 
   return (
     <>
@@ -171,7 +185,7 @@ const Home = () => {
         <h1>happy customer</h1>
         <div class="mian-review">
           <div class="inner-review">
-            <p>Service Provided by them was faculus, I really liked it</p>
+            <p>Service Provided by them was faculus, I really liked it. I will suggest a lot of friends to make trip.</p>
 
             <div class="review-client">
               <img src={Review} />
@@ -210,6 +224,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+       <Chatbot/>
+  
 
       <button onClick={topFunction()} id="myBtn">UP</button>
       <Footer/>

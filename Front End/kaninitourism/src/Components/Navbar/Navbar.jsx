@@ -31,6 +31,9 @@ const Navbar = () => {
                     Packages
                 </li>
                 <li>
+                    Contact Us
+                </li>
+                <li>
                     Login
                 </li>
             </ul>

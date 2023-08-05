@@ -18,7 +18,6 @@ namespace KaniniTourism.Models
         [StringLength(50, ErrorMessage = "Location description cannot exceed 50 characters.")]
         public string? LocationDescription { get; set; }
 
-        [Required(ErrorMessage = "Image name is required.")]
         [StringLength(100, ErrorMessage = "Image name cannot exceed 100 characters.")]
         public string? ImageName { get; set; }
 

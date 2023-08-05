@@ -9,5 +9,7 @@ namespace KaniniTourism.Repository.UserRepo
         Task<IActionResult> AddUser(User userObj);
         Task<IActionResult> Authenticate(User userObj);
         Task<IActionResult> Refresh(TokenApiDto getToken);
+        Task<ActionResult<List<User>>> GetAllAgent();
+        Task<ActionResult<List<User>>> DeleteAgent(int id);
     }
 }

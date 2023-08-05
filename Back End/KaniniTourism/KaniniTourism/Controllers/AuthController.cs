@@ -32,13 +32,14 @@ namespace loginauth.Controllers
             try
             {
                 return await _authContext.AddUser(userObj);
-                Log.Information("Registration Details =>{@userObj}", userObj);
+                
             }
             catch
             {
                 // Return a generic error response to the client
                 return StatusCode(500, new { Message = "An error occurred while adding a user. Please try again later." });
             }
+            Log.Information("Registration Details =>{@userObj}", userObj);
         }
 
         [HttpPost("authenticate")]
@@ -69,6 +70,35 @@ namespace loginauth.Controllers
             {
                 // Return a generic error response to the client
                 return StatusCode(500, new { Message = "An error occurred while refreshing the token. Please try again later." });
+            }
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult<List<User>>> GetAllAgent()
+        {
+            try
+            {
+                return await _authContext.GetAllAgent();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        [HttpDelete("Delete")]
+        public async Task<ActionResult<List<User>>> DeleteAgent(int id)
+        {
+            try
+            {
+                return await _authContext.DeleteAgent(id);
+                
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

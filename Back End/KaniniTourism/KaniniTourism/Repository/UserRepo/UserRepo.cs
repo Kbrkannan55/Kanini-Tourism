@@ -10,6 +10,7 @@ using KaniniTourism.Models;
 using loginauth.Helpers;
 using Microsoft.EntityFrameworkCore;
 using loginauth.Models.Dto;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 
 namespace KaniniTourism.Repository.UserRepo
 {
@@ -193,6 +194,24 @@ namespace KaniniTourism.Repository.UserRepo
                 throw new SecurityTokenException("This is Invalid Token");
             return principal;
 
+        }
+
+
+
+
+        public async Task<ActionResult<List<User>>> GetAllAgent()
+        {
+            var details = await _context.users.Where(x => x.Role == "Agent").ToListAsync();
+            return details;
+        }
+
+
+        public async Task<ActionResult<List<User>>> DeleteAgent(int id)
+        {
+           var details= await  _context.users.FirstOrDefaultAsync(d=>d.Id== id);
+            _context.Remove(details);
+            await _context.SaveChangesAsync();
+            return await _context.users.ToListAsync();
         }
     }
 
