@@ -15,7 +15,7 @@ namespace KaniniTourism.Models
         public int BookId { get; set; }
 
         [Required(ErrorMessage = "User ID is required.")]
-        [ForeignKey("Admin_User")]
+        [ForeignKey("User")]
         public int? Id { get; set; }
 
         [Required(ErrorMessage = "Start date is required.")]
@@ -29,7 +29,7 @@ namespace KaniniTourism.Models
         public int? ChildCount { get; set; }
 
         [Required(ErrorMessage = "Package ID is required.")]
-        [ForeignKey("PackageOffering")]
+        [ForeignKey("Package")]
         public int? PackageID { get; set; }
 
         public ICollection<Transaction>? Transactions { get; set; } = new List<Transaction>();

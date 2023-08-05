@@ -3,6 +3,7 @@ import { TextField, Button } from '@mui/material';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
+import { Navbar } from 'react-bootstrap';
 
 const Register = () => {
   const [userDTO, setUserDTO] = useState({
@@ -70,6 +71,7 @@ const Register = () => {
 
   return (
     <div className="user-register-container">
+      <Navbar/>
       <div className="user-register-title">User Register</div>
       <div className="input-container">
         <TextField

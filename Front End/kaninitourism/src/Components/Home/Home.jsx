@@ -50,7 +50,7 @@ const Home = () => {
 
 
       <Navbar/>
-      <div className="background-image" style={{marginTop:'-20px',borderRadius:'70px'}} >
+      <div className="background-image" style={{marginTop:'0px',borderRadius:'70px'}} >
         <h1>travel to explore</h1>
         <a href="#">read more</a>
       </div>

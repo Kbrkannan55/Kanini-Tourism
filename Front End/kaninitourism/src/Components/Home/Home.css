@@ -84,6 +84,7 @@ html{
 .background-image{
     display: flex;
     flex-direction: column;
+   
 }
 .background-image h1{
     font-size: 50px;

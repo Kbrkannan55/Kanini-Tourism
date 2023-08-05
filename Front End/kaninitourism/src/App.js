@@ -52,7 +52,9 @@ function App() {
       {/* <ShowSpot/> */}
       {/* <Payment/> */}
       {/* <Chatbot/> */}
-      <Package/>
+      {/* <Package/> */}
+      {/* <TravelAgentPage/> */}
+      {/* <ShowPlace/> */}
     </>
   );
 }
