@@ -363,3 +363,5 @@ C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back E
 C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\NUnitTesting\obj\Debug\net7.0\NUnitTesting.pdb
 C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\NUnitTesting\obj\Debug\net7.0\NUnitTesting.genruntimeconfig.cache
 C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\NUnitTesting\obj\Debug\net7.0\ref\NUnitTesting.dll
+C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\NUnitTesting\bin\Debug\net7.0\Castle.Core.dll
+C:\Users\kbrka\OneDrive\Desktop\practical training\Kanini Tourism Website\Back End\KaniniTourism\NUnitTesting\bin\Debug\net7.0\Moq.dll

@@ -15,9 +15,10 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Booking.css';
 import Logo from '../../Assets/traveltour.png';
+import { ToastContainer, toast } from 'react-toastify';
 
 const validationSchema = yup.object().shape({
   id: yup.number().required('User ID is required'),
@@ -31,13 +32,14 @@ const Booking = () => {
   const [showLinks, setShowLinks] = useState(false);
 
   const [formData, setFormData] = useState({
-    id: '',
+    id: 2,
     startDate: '',
     count: '',
     packageID: '',
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const toggleLinks = () => {
     setShowLinks(!showLinks);
@@ -54,9 +56,22 @@ const Booking = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await validationSchema.validate(formData, { abortEarly: false });
+      // await validationSchema.validate(formData, { abortEarly: false });
       const response = await axios.post('https://localhost:7050/api/Booking', formData);
       console.log(response.data);
+  
+      // Display a success toast message
+      toast.success('Booked successfully!');
+  
+      // Clear the form data
+      setFormData({
+        
+        startDate: '',
+        count: '',
+        packageID: '',
+      });
+      navigate('/payment')
+
     } catch (error) {
       if (error instanceof yup.ValidationError) {
         const newErrors = {};
@@ -66,6 +81,7 @@ const Booking = () => {
         setErrors(newErrors);
       } else {
         console.error('Error submitting form:', error);
+        toast.error("Wrong Data")
       }
     }
   };
@@ -117,13 +133,13 @@ const Booking = () => {
         <Box sx={{ overflow: 'auto' }}>
           <ul className={`navbar-links ${showLinks ? 'active' : ''}`}>
             <li className='booking-li'>
-              Home
+            <Link to={'/'}>  Home</Link>
             </li>
             <li className='booking-li'>
-              Packages
+            <Link to={'/package'}>Packages </Link>
             </li>
             <li className='booking-li'>
-              Logout
+            <Link to={'/'}>Logout</Link>
             </li>
           </ul>
         </Box>
@@ -135,25 +151,15 @@ const Booking = () => {
             Book and Pay
           </Typography>
           <form onSubmit={handleSubmit}>
-            <TextField
-              fullWidth
-              margin="normal"
-              label="User ID"
-              name="id"
-              value={formData.id}
-              onChange={handleChange}
-              required
-              error={!!errors.id}
-              helperText={errors.id}
-            />
+            
             <TextField
               fullWidth
               margin="normal"
               label="Name"
               name="name"
-              required
-              error={!!errors.name}
-              helperText={errors.name}
+             
+              // error={!!errors.name}
+              // helperText={errors.name}
             />
             <TextField
               fullWidth
@@ -191,11 +197,12 @@ const Booking = () => {
               error={!!errors.packageID}
               helperText={errors.packageID}
             />
-            <Button type="submit" variant="contained" color="primary">
+            <Button type="submit" variant="contained" color="primary" >
               Submit
             </Button>
           </form>
         </Container>
+        <ToastContainer/>
       </Box>
     </Box>
   );

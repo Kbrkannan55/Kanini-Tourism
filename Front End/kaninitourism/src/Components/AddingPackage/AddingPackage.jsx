@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Button,
     Container,
@@ -13,6 +13,7 @@ import {
     createTheme,
 } from '@mui/material';
 import * as yup from 'yup';
+import { toast } from 'react-toastify';
 
 const theme = createTheme();
 
@@ -33,6 +34,7 @@ const ValidationSchema = yup.object().shape({
 
 const AddingPackage = () => {
     const [formData, setFormData] = useState({
+        id: 2,
         packageType: '',
         description: '',
         pricePerPerson: '',
@@ -48,6 +50,7 @@ const AddingPackage = () => {
     });
 
     const [packages, setPackages] = useState([]);
+    const [getpackages, setgetpackages] = useState([]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -57,11 +60,54 @@ const AddingPackage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const getpackagelist = async () => {
+        try {
+            const response = await fetch('https://localhost:7050/api/Package', {
+                method: 'GET',
+                headers: {
+                },
+            });
+
+            if (response.status === 200) {
+                const data = await response.json();
+                console.log('Package list:', data);
+                setgetpackages(data);
+            } else {
+                console.error('GET request failed with status:', response.status);
+            }
+        } catch (error) {
+            console.error('Error fetching package list:', error);
+        }
+    };
+
+    useEffect(() => {
+        getpackagelist();
+    }, [])
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        ValidationSchema.validate(formData)
-            .then(() => {
-                setPackages([...packages, formData]);
+        try {
+            await ValidationSchema.validate(formData);
+
+            const response = await fetch('https://localhost:7050/api/Package', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+
+            });
+            console.log(response)
+            console.log(formData)
+
+            if (response.status === 200) {
+                const responseData = await response.json();
+                console.log('API response:', responseData);
+
+                // Update the packages state with the new data (if needed)
+                setPackages([...packages, responseData]);
+
+                // Clear the form data
                 setFormData({
                     packageType: '',
                     description: '',
@@ -76,11 +122,16 @@ const AddingPackage = () => {
                     placeId: '',
                     hotelId: '',
                 });
-            })
-            .catch((errors) => {
-                console.error(errors);
-            });
+                toast.success('Package Added')
+
+            } else {
+                console.error('API request failed with status:', response.status);
+            }
+        } catch (errors) {
+            console.error('Validation errors:', errors);
+        }
     };
+
 
     return (
         <ThemeProvider theme={theme}>
@@ -252,31 +303,7 @@ const AddingPackage = () => {
                     </Box>
                 </form>
             </Container>
-            {/* <Container maxWidth="md">
-        <Box mt={4}>
-          <Typography variant="h5" align="center">
-            Package List
-          </Typography>
-          {packages.map((packageData, index) => (
-            <Card key={index} variant="outlined" sx={{ mt: 2 }}>
-              <CardContent>
-                <Typography variant="h6">{packageData.packageType}</Typography>
-                <Typography>{packageData.description}</Typography>
-                <Typography>{packageData.pricePerPerson}</Typography>
-                <Typography>{packageData.source}</Typography>
-                <Typography>{packageData.destination}</Typography>
-                <Typography>{packageData.vehicleType}</Typography>
-                <Typography>{packageData.days}</Typography>
-                <Typography>{packageData.nights}</Typography>
-                <Typography>{packageData.totaldays}</Typography>
-                <Typography>{packageData.itineraryDetails}</Typography>
-                <Typography>{packageData.placeId}</Typography>
-                <Typography>{packageData.hotelId}</Typography>
-              </CardContent>
-            </Card>
-          ))}
-        </Box>
-      </Container> */}
+
         </ThemeProvider>
     );
 };

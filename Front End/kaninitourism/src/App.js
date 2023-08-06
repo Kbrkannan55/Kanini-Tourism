@@ -68,11 +68,21 @@ function App() {
       {/* <TravelAgentSpot/> */}
       {/* <ShowPlace/> */}
       {/* <Invoice/> */}
-      {/* <BrowserRouter>
+      <BrowserRouter>
       <Routes>
       <Route path='/' element={<Home/>}/>
+      <Route path='/package' element={<Package/>}/>
+      <Route path='/feedback' element={<Feedback/>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/signup' element={<Register/>}/>
+      <Route path='/agentsignup' element={<RegistrationFormforAgent/>}/>
+      <Route path='/login/signup' element={<Register/>}/>
+      <Route path='/adminpage' element={<Adminpage/>}/>
+      <Route path='/agentpage' element={<TravelAgentPage/>}/>
+      <Route path='/book' element={<Booking/>}/>
+      <Route path='/payment' element={<Payment/>}/>
       </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
       {/* <AddingPackage/> */}
       {/* <TravelAgentPackage/> */}
 

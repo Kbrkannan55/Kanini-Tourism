@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
 import Navbar from '../Navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const [userDTO, setUserDTO] = useState({
@@ -139,8 +140,8 @@ const Register = () => {
         <Button variant="contained" color="primary" onClick={register}>
           Register
         </Button>&nbsp;&nbsp;&nbsp;
-        <Button variant="contained" color="primary">
-          Login
+        <Button variant="contained" color="secondary">
+         <Link style={{textDecoration:'none',color:'white',width:'60px'}} to={'/login'}>Login</Link>
         </Button>
       </div>
       {success && <div className="success">Registered successfully!</div>}

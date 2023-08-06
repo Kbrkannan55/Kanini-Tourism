@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 
 Modal.setAppElement('#root'); // Set the root element as the app element for accessibility
 
@@ -24,7 +25,7 @@ const PackageModal = ({ isOpen, closeModal, packageData }) => {
         </div>
         <div className='Modal-buttons'>
           <button className='Close-button' onClick={closeModal}>Close</button>
-          <button className='Book-button'>Book Now</button>
+          <button className='Book-button'> <Link style={{textDecoration:'none',color:'white'}} to={'/book'}>Book Now</Link> </button>
         </div>
       </div>
     </Modal>

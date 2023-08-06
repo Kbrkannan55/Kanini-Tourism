@@ -11,12 +11,23 @@ const Package = () => {
   const [packages, setPackages] = useState([]);
   const [search, setSearch] = useState('');
   const [destination, setDestination] = useState('');
-  const [transport,setTransport]=useState('')
+  const [transport, setTransport] = useState('');
   const [selectedPackage, setSelectedPackage] = useState(null);
 
   useEffect(() => {
     fetchPackages();
   }, []);
+
+  useEffect(() => {
+    // Debounce function to delay the filterPackages call
+    const delayFilterPackages = setTimeout(() => {
+      filterPackages();
+    }, 300);
+
+    return () => {
+      clearTimeout(delayFilterPackages);
+    };
+  }, [search, destination, transport]);
 
   const fetchPackages = async () => {
     try {
@@ -35,9 +46,9 @@ const Package = () => {
     setDestination(event.target.value);
   };
 
-  const handletransportchange=(event)=>{
-    setTransport(event.target.value)
-  }
+  const handleTransportChange = (event) => {
+    setTransport(event.target.value);
+  };
 
   const filterPackages = async () => {
     try {
@@ -78,13 +89,12 @@ const Package = () => {
           value={destination}
           onChange={handleDestinationChange}
         />
-        <input 
-        type='text'
-        placeholder='Transport Type'
-        value={transport}
-        onChange={handletransportchange}
+        <input
+          type='text'
+          placeholder='Transport Type'
+          value={transport}
+          onChange={handleTransportChange}
         />
-        <button onClick={filterPackages}>Search</button>
       </div>
 
       <div className='Package-list'>
@@ -105,6 +115,6 @@ const Package = () => {
       />
     </div>
   );
-}
+};
 
 export default Package;

@@ -22,19 +22,19 @@ const Navbar = () => {
       </div>
       <ul className={`navbar-links ${showLinks ? 'active' : ''}`}>
         <li>
-        Home 
+       <Link style={{fontSize:'18px'}} to={'/'}> Home </Link>
         </li>
         <li>
         Services
         </li>
         <li>
-          Packages
+        <Link style={{fontSize:'18px'}} to={'/package'}> Packages </Link>
         </li>
         <li>
-          Contact Us
+        <Link style={{fontSize:'18px'}} to={'/feedback'}> Contact </Link>
         </li>
         <li>
-          Login
+        <Link style={{fontSize:'18px'}} to={'/login'}> Login </Link>
         </li>
       </ul>
     </nav>
