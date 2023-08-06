@@ -23,10 +23,10 @@ namespace Imageupload.Controllers
 
         //to post images
         [HttpPost]
-        public async Task<ActionResult<Place>> AddSpecialPlace([FromForm] Place allPlaces)
+        public async Task<ActionResult<Place>> AddImages([FromForm] Place imageGallery)
         {
-            allPlaces.ImageName = await SaveImage(allPlaces.ImageFile);
-            _context.places.Add(allPlaces);
+            imageGallery.ImageName = await SaveImage(imageGallery.ImageFile);
+            _context.places.Add(imageGallery);
             await _context.SaveChangesAsync();
 
             return StatusCode(201);
@@ -38,13 +38,14 @@ namespace Imageupload.Controllers
         {
             string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '-');
             imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
-            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images/Place", imageName);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images/PlaceDetails", imageName);
             using (var fileStream = new FileStream(imagePath, FileMode.Create))
             {
                 await imageFile.CopyToAsync(fileStream);
             }
             return imageName;
         }
+
 
         //to get all images
         [HttpGet]
@@ -57,7 +58,7 @@ namespace Imageupload.Controllers
                     Location = x.Location,
                     Description = x.Description,
                     ImageName = x.ImageName,
-                    ImageSrc = String.Format("{0}://{1}{2}/Images/Place/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                    ImageSrc = String.Format("{0}://{1}{2}/Images/PlaceDetails/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
                 })
                 .ToListAsync();
         }

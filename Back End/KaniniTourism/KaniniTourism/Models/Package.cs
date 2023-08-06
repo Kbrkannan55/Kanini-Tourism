@@ -34,9 +34,6 @@ namespace KaniniTourism.Models
         [Required(ErrorMessage = "Vehicle type is required.")]
         public string? VehicleType { get; set; }
 
-        [Required(ErrorMessage = "Location is required.")]
-        public string? Location { get; set; }
-
         [Required(ErrorMessage = "Number of days is required.")]
         [Range(1, int.MaxValue, ErrorMessage = "Number of days must be at least 1.")]
         public int? Days { get; set; }

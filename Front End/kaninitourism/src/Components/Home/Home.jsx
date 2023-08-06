@@ -22,8 +22,6 @@ import Chatbot from '../Chatbot/Chatbot'
 
 
 const Home = () => {
-
-
   const topFunction = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
@@ -43,20 +41,49 @@ const Home = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); 
+  }, []);
+
+  // Configure carousel settings
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <>
 
 
       <Navbar/>
-      <div className="background-image" style={{marginTop:'0px',borderRadius:'70px'}} >
-        <h1>travel to explore</h1>
-        <a href="#">read more</a>
+      <div className="background-image" style={{marginTop:'-20px',borderRadius:'0px'}} >
+        <h1>Travel to Explore</h1>
+        <a style={{textDecoration:'none',color:'white'}} href='#our-services'>Read more</a>
+      </div>
+      <div className="bg1">
+
+      </div>
+  <div className="bg2">
+        
       </div>
 
 
-      <div className="our-services">
+      <div id='our-services' className="our-services">
         <h1>Our <span>services</span></h1>
         <div className="main-services">
 
@@ -102,7 +129,7 @@ const Home = () => {
 
 
       <div className="recomended-destination">
-        <h1>Most Liked <span>destination</span></h1>
+        <h1>Most Liked <span>Destination</span></h1>
         <div className="main-destination">
           <div className="inner-destination">
             <div className="main-image">
@@ -122,7 +149,7 @@ const Home = () => {
             <div className="main-image">
               <img src={Destination2} />
             </div>
-            <h2>Los Vegas</h2>
+            <h2>LasVegas</h2>
             <p></p>
             <div className="dist-icons">
               <img src={Icon1} />&nbsp;&nbsp;&nbsp;
@@ -182,7 +209,7 @@ const Home = () => {
 
 
       <div class="reviews">
-        <h1>happy customer</h1>
+        <h1>Happy Customer</h1>
         <div class="mian-review">
           <div class="inner-review">
             <p>Service Provided by them was faculus, I really liked it. I will suggest a lot of friends to make trip.</p>
@@ -224,7 +251,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-       <Chatbot/>
+       {/* <Chatbot/> */}
   
 
       <button onClick={topFunction()} id="myBtn">UP</button>

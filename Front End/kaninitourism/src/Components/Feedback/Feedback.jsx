@@ -7,6 +7,7 @@ import image1 from '../../Assets/travel3.jpg';
 import image2 from '../../Assets/travel2.jpg';
 import image3 from '../../Assets/travel4.jpg';
 import Navbar from '../Navbar/Navbar';
+import Chatbot from '../Chatbot/Chatbot';
 
 const Feedback = () => {
   const form = useRef();
@@ -106,6 +107,7 @@ const Feedback = () => {
           <ToastContainer />
         </div>
       </div>
+      <Chatbot/>
     </div>
   );
 };

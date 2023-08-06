@@ -35,6 +35,7 @@
   <ItemGroup>
     <Folder Include="Images\Hotel\" />
     <Folder Include="Images\AdminGallery\" />
+    <Folder Include="Images\PlaceDetails\" />
     <Folder Include="Images\Spot\" />
     <Folder Include="Images\Place\" />
   </ItemGroup>

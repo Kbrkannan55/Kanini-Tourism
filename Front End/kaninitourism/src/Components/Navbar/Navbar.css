@@ -18,9 +18,8 @@
 }
 
 .navbar-logo img {
-  /* margin-left: -100px; */
   border-radius: 15px;
-  width: 90px;
+  width: 100px;
   height: auto;
 }
 
@@ -87,7 +86,7 @@
 }
 
 .navbar-links li {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
 }
 

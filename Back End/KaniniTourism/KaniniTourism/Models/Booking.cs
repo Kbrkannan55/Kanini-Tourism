@@ -23,7 +23,7 @@ namespace KaniniTourism.Models
         public DateTime? StartDate { get; set; }
 
         [Range(1, 5, ErrorMessage = "Adult count must be at least 1.")]
-        public int? Count { get; set; }
+        public int Count { get; set; }
 
         [Required(ErrorMessage = "Package ID is required.")]
         [ForeignKey("Package")]

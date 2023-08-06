@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Logo from '../../Assets/LogoT.jpg'; // Replace with the actual path to your logo image
+import Logo from '../../Assets/logo.jpg';
+import './Booking.css'; 
 
 const Booking = () => {
-  const [showLink, setShowLink] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
 
   const [formData, setFormData] = useState({
-    id: null,
-    startDate: null,
-    count: null,
-    packageID: null,
+    id: '',
+    startDate: '',
+    count: '',
+    packageID: '',
   });
 
   const toggleLinks = () => {
-    setShowLink(!showLink);
+    setShowLinks(!showLinks);
   };
 
   const handleChange = (event) => {
@@ -25,17 +26,12 @@ const Booking = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevent the default form submission behavior
     try {
-      const response = await axios.post('YOUR_API_ENDPOINT_HERE', formData);
-      console.log(response.data); // Handle success or show a message to the user
-      // Optionally reset the form fields after successful submission
-      setFormData({
-        id: null,
-        tartDate: null,
-        count: null,
-        ackageID: null,
-      });
+      console.log(formData);
+      const response = await axios.post('https://localhost:7050/api/Booking', formData);
+      console.log(response.data); 
+
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -45,72 +41,82 @@ const Booking = () => {
     <div>
       <nav className="navbar">
         <div className="navbar-logo">
-          <img className="image-logo" src={Logo} alt="Logo" />
+          <img className="image-logo" src={Logo} style={{width:'170px',height:'120px'}} alt="Logo" />
         </div>
-        <div className={`navbar-toggle ${showLink ? 'active' : ''}`} onClick={toggleLinks}>
+        <div className={`navbar-toggle ${showLinks ? 'active' : ''}`} onClick={toggleLinks}>
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <ul className={`navbar-links ${showLink ? 'active' : ''}`}>
+        <ul className={`navbar-links ${showLinks ? 'active' : ''}`}>
           <li>Home</li>
           <li>Packages</li>
           <li>Logout</li>
         </ul>
       </nav>
 
-      <h2>Booking Form</h2>
-      <form onSubmit={handleSubmit}>
-       
-        <label>User ID :</label>
-        <input
-          type="number"
-          name="Id"
-          value={formData.Id || ''}
-          onChange={handleChange}
-          required
-        />
-        <br/>
-        <label>Name :</label>
-        <input
-          type="text"
-          name="Id"
+      <div className="booking-form-container">
+        <h2>Booking Form</h2>
+        <form onSubmit={handleSubmit}>
+
+          <label htmlFor="id">User ID:</label>
+          <input
+            type="number"
+            id="id"
+            name="id"
+            value={formData.id}
+            onChange={handleChange}
+            required
+          />
+          <br />
+
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+           
           
-          onChange={handleChange}
-          required
-        />
-        <br/>
-        <label>Start Date:</label>
-        <input
-          type="date"
-          name="StartDate"
-          value={formData.StartDate || ''}
-          onChange={handleChange}
-          required
-        />
-        <br />
+            required
+          />
+          <br />
 
-        <label>Total Count:</label>
-        <input
-          type="number"
-          name="AdultCount"
-          value={formData.count || ''}
-          onChange={handleChange}
-          required
-        />
-        <br />
+          <label htmlFor="startDate">Start Date:</label>
+          <input
+            type="date"
+            id="startDate"
+            name="startDate"
+            value={formData.startDate}
+            onChange={handleChange}
+            required
+          />
+          <br />
 
-        <label>Package ID:</label>
-        <input
-          type="number"
-          name="PackageID"
-          value={formData.PackageID || ''}
-          onChange={handleChange}
-          required
-        />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+          <label htmlFor="count">Total Count:</label>
+          <input
+            type="number"
+            id="count"
+            name="count"
+            value={formData.count}
+            onChange={handleChange}
+            required
+          />
+          <br />
+
+          <label htmlFor="packageID">Package ID:</label>
+          <input
+            type="number"
+            id="packageID"
+            name="packageID"
+            value={formData.packageID}
+            onChange={handleChange}
+            required
+          />
+          <br />
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 };

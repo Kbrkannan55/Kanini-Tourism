@@ -30,10 +30,7 @@ namespace KaniniTourism.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookId"));
 
-                    b.Property<int?>("AdultCount")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ChildCount")
+                    b.Property<int>("Count")
                         .HasColumnType("int");
 
                     b.Property<int?>("Id")
@@ -140,7 +137,6 @@ namespace KaniniTourism.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdminImgsId"));
 
                     b.Property<string>("ImageName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -196,10 +192,6 @@ namespace KaniniTourism.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ItineraryDetails")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -278,7 +270,6 @@ namespace KaniniTourism.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("SpotId"));
 
                     b.Property<string>("ImageName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("PlaceId")
