@@ -1,3 +1,5 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap'); */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 :root{
@@ -7,16 +9,11 @@
 }
 *{
     font-family: 'Roboto', sans-serif;
-    /* margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: all .2s; */
+   
     text-decoration: none;
 }
-html{
-    font-size: 62.5%;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+.total-home-div{
+    font-size: 14px;
 }
 .header{
     display: flex;
@@ -38,9 +35,6 @@ html{
     height: 50px;
 }
 
-/* .logo{
-    height: 10px;
-} */
 
 
 .header #logo span{
@@ -129,6 +123,7 @@ html{
 }
 .our-services{
     padding: 2rem 7%;
+    
 
 }
 .our-services h1{
@@ -190,6 +185,13 @@ html{
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
+}
+.main-destination div{
+    cursor: pointer;
+}
+.main-destination div:hover{
+    transform: scale(1.01);
+    transition: 0.2s all;
 }
 .main-destination .inner-destination{
     flex: 280px;
@@ -265,18 +267,25 @@ html{
     gap: 10px;
     flex-wrap: wrap;
 }
+
+
+.mian-review div:hover{
+transform:  scale(1.03);
+transition: 0.2s all;
+}
 .inner-review{
-    flex: 1 1 45rem;
+    flex: 1 1 30rem;
     padding: 2rem 4rem;
+
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .inner-review p{
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 .review-client{
     display: flex;
     align-items: center;
-    padding: 2rem 0;
+    padding: 2rem 1;
 }
 .review-client span{
     font-size: 1.5rem;
@@ -315,7 +324,7 @@ html{
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 1600px;
+    right: 15px;
     z-index: 99;
     font-size: 18px;
     border: none;

@@ -1,0 +1,14 @@
+.travelagentnav{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-evenly;
+    height: 50px;
+}
+
+.travelagentnav div{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+   
+}

@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
 import Logo from '../../Assets/traveltour1.jpg'
-import './TravelAgentPage.css'
+import './TravelAgentHotel.css'
 import ShowPlace from '../Places/ShowPlace'
+import ShowHotel from '../Hotel/ShowHotel'
 
-const TravelAgentPage = () => {
+const TravelAgentHotel = () => {
     const [showLink, setShowLink] = useState(false);
 
     const toggleLinks = () => {
@@ -46,10 +47,10 @@ const TravelAgentPage = () => {
                 </div>
             </div>
 
-            <ShowPlace/>
+            <ShowHotel/>
 
         </div>
     )
 }
 
-export default TravelAgentPage
+export default TravelAgentHotel

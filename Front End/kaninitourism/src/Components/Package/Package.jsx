@@ -11,6 +11,7 @@ const Package = () => {
   const [packages, setPackages] = useState([]);
   const [search, setSearch] = useState('');
   const [destination, setDestination] = useState('');
+  const [transport,setTransport]=useState('')
   const [selectedPackage, setSelectedPackage] = useState(null);
 
   useEffect(() => {
@@ -34,10 +35,14 @@ const Package = () => {
     setDestination(event.target.value);
   };
 
+  const handletransportchange=(event)=>{
+    setTransport(event.target.value)
+  }
+
   const filterPackages = async () => {
     try {
       const response = await axios.get(
-        `https://localhost:7050/api/Package/GetFilteredDetails?type=${search}&desti=${destination}`
+        `https://localhost:7050/api/Package/GetFilteredDetails?type=${search}&desti=${destination}&transport=${transport}`
       );
       setPackages(response.data);
     } catch (error) {
@@ -72,6 +77,12 @@ const Package = () => {
           placeholder='Search by destination'
           value={destination}
           onChange={handleDestinationChange}
+        />
+        <input 
+        type='text'
+        placeholder='Transport Type'
+        value={transport}
+        onChange={handletransportchange}
         />
         <button onClick={filterPackages}>Search</button>
       </div>

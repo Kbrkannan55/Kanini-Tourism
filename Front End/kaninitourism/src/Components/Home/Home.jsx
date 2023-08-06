@@ -71,9 +71,10 @@ const Home = () => {
 
 
       <Navbar/>
+      <div className='total-home-div'>
       <div className="background-image" style={{marginTop:'-20px',borderRadius:'0px'}} >
         <h1>Travel to Explore</h1>
-        <a style={{textDecoration:'none',color:'white'}} href='#our-services'>Read more</a>
+        <a style={{textDecoration:'none',color:'white',fontSize:'14px'}} href='#our-services'>Read more</a>
       </div>
       <div className="bg1">
 
@@ -82,17 +83,17 @@ const Home = () => {
         
       </div>
 
-
-      <div id='our-services' className="our-services">
-        <h1>Our <span>services</span></h1>
+    
+      <div id='our-services' className="our-services" style={{fontSize:'14px'}} >
+        <h1 style={{fontSize:'32px'}}>Our <span>services</span></h1>
         <div className="main-services">
 
           <div class="inner-service">
             <div class="inner-icons">
               <img src={Service1}></img>
             </div>
-            <h2>Transportation <span>Service</span> </h2>
-            <p> Efficient and comfortable transportation options to get you around the destination.</p>
+            <h2 style={{fontSize:'28px'}}>Transportation <span>Service</span> </h2>
+            <p style={{fontSize:'16px'}}> Efficient and comfortable transportation options to get you around the destination.</p>
 
           </div>
 
@@ -100,8 +101,8 @@ const Home = () => {
             <div class="inner-icons">
               <img src={Service1}></img>
             </div>
-            <h2>Sight <span>Seeing</span> Activities</h2>
-            <p>Explore the best attractions and landmarks with our guided sightseeing tours.</p>
+            <h2 style={{fontSize:'28px'}}>Sight <span>Seeing</span> Activities</h2>
+            <p style={{fontSize:'16px'}}>Explore the best attractions and landmarks with our guided sightseeing tours.</p>
 
           </div>
 
@@ -109,8 +110,8 @@ const Home = () => {
             <div class="inner-icons">
               <img src={Service1}></img>
             </div>
-            <h2>Adventure <span>Activities</span></h2>
-            <p>Experience thrilling adventure activities, from hiking to water sports.</p>
+            <h2 style={{fontSize:'28px'}}>Adventure <span>Activities</span></h2>
+            <p style={{fontSize:'16px'}}>Experience thrilling adventure activities, from hiking to water sports.</p>
 
           </div>
 
@@ -118,8 +119,8 @@ const Home = () => {
             <div className="inner-icons">
               <img src={Service1}></img>
             </div>
-            <h2>Get <span>best</span> prices</h2>
-            <p>Pricing is the factor where we stand out from others, Massive Discount.</p>
+            <h2 style={{fontSize:'28px'}}>Get <span>best</span> prices</h2>
+            <p style={{fontSize:'16px'}}>Pricing is the factor where we stand out from others, Massive Discount.</p>
 
           </div>
 
@@ -129,14 +130,14 @@ const Home = () => {
 
 
       <div className="recomended-destination">
-        <h1>Most Liked <span>Destination</span></h1>
+        <h1 style={{fontSize:'32px'}}>Most Liked <span>Destination</span></h1>
         <div className="main-destination">
           <div className="inner-destination">
             <div className="main-image">
               <img src={Destination1} />
             </div>
 
-            <h2>Singapore</h2>
+            <h5>Singapore</h5>
             <p></p>
             <div className="dist-icons">
               <img src={Icon1} />&nbsp;&nbsp;&nbsp;
@@ -149,7 +150,7 @@ const Home = () => {
             <div className="main-image">
               <img src={Destination2} />
             </div>
-            <h2>LasVegas</h2>
+            <h5>LasVegas</h5>
             <p></p>
             <div className="dist-icons">
               <img src={Icon1} />&nbsp;&nbsp;&nbsp;
@@ -162,7 +163,7 @@ const Home = () => {
             <div class="main-image">
               <img src={Destination3} />
             </div>
-            <h2>Ooty</h2>
+            <h5>Ooty</h5>
             <p></p>
             <div class="dist-icons">
               <img src={Icon1} />&nbsp;&nbsp;&nbsp;
@@ -175,7 +176,7 @@ const Home = () => {
             <div class="main-image">
               <img src={Destination4} />
             </div>
-            <h2>Black Thunder</h2>
+            <h5>Black Thunder</h5>
             <p></p>
             <div class="dist-icons">
               <img src={Icon1} />&nbsp;&nbsp;&nbsp;
@@ -188,7 +189,7 @@ const Home = () => {
             <div class="main-image">
               <img style={{height:'360px',borderRadius:'15px'}} src={Destination5} />
             </div>
-            <h2>Thailand</h2>
+            <h5>Thailand</h5>
             <p></p>
             <div class="dist-icons">
             </div>
@@ -198,7 +199,7 @@ const Home = () => {
             <div class="main-image">
               <img style={{height:'360px',borderRadius:'15px',boxShadow:'5px 5px 10px grey'}} src={Destination6} />
             </div>
-            <h2>Vagamon</h2>
+            <h5>Vagamon</h5>
             <p></p>
             <div class="dist-icons">
 
@@ -209,14 +210,14 @@ const Home = () => {
 
 
       <div class="reviews">
-        <h1>Happy Customer</h1>
+        <h4>Happy Customer</h4>
         <div class="mian-review">
           <div class="inner-review">
             <p>Service Provided by them was faculus, I really liked it. I will suggest a lot of friends to make trip.</p>
 
             <div class="review-client">
               <img src={Review} />
-              <span>Jothika</span>
+              <span style={{fontSize:'20px'}}>Jothika</span>
             </div>
           </div>
 
@@ -226,7 +227,7 @@ const Home = () => {
 
             <div class="review-client">
               <img src={Review} />
-              <span>Priya</span>
+              <span style={{fontSize:'20px'}}>Priya</span>
             </div>
           </div>
 
@@ -236,7 +237,7 @@ const Home = () => {
 
             <div class="review-client">
               <img src={Review} />
-              <span>Lavanya</span>
+              <span style={{fontSize:'20px'}}>Lavanya</span>
             </div>
           </div>
 
@@ -246,7 +247,7 @@ const Home = () => {
 
             <div class="review-client">
               <img src={Review} />
-              <span>Keerthika</span>
+              <span style={{fontSize:'20px'}}> Keerthika</span>
             </div>
           </div>
         </div>
@@ -256,6 +257,7 @@ const Home = () => {
 
       <button onClick={topFunction()} id="myBtn">UP</button>
       <Footer/>
+      </div>
     </>
   )
 }

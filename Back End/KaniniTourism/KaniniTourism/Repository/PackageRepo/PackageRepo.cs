@@ -28,9 +28,9 @@ namespace KaniniTourism.Repository.PackageServices
         }
 
 
-        public async Task<ActionResult<List<Package>>> GetFiltedPackages(string type, string desti )
+        public async Task<ActionResult<List<Package>>> GetFiltedPackages(string type, string desti,string transport)
         {
-            var details= await _context.packages.Where(x=>x.PackageType==type && x.Destination==desti).ToListAsync();
+            var details= await _context.packages.Where(x=>x.PackageType==type && x.Destination==desti && x.VehicleType==transport).ToListAsync();
             return details;
         }
     }

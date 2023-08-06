@@ -22,6 +22,9 @@ import Hotel from './Components/Hotel/Hotel';
 import ShowHotel from './Components/Hotel/ShowHotel';
 import Package from './Components/Package/Package';
 import Booking from './Components/Booking/Booking';
+import Invoice from './Components/Invoice/Invoice';
+import TravelAgentHotel from './Components/TravelAgentHotel.jsx/TravelAgentHotel';
+import TravelAgentSpot from './Components/TravelAgentSpot/TravelAgentSpot';
 
 
 function App() {
@@ -29,14 +32,14 @@ function App() {
   return (
     <>
       {/* <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> */}
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> */}
       <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet"></link>
       {/* <Booking/> */}
       {/* <Home/> */}
       {/* <Navbar/> */}
       {/* <Register/> */}
       {/* <Login/> */}
-      {/* <Home/> */}
+      <Home/>
       {/* <TravelAgentPage/> */}
       {/* <RegistrationForm/> */}
       {/* <RegistrationFormforAgent/> */}
@@ -45,7 +48,7 @@ function App() {
       {/* <Feedback/> */}
       {/* <AdminImage/> */}
       {/* <ShowSpot/> */}
-      <ShowPlace/>
+      {/* <ShowPlace/> */}
       {/* <Place/> */}
       {/* <CRUDgallery/> */}
       {/* <Hotel/> */}
@@ -55,7 +58,10 @@ function App() {
       {/* <Chatbot/> */}
       {/* <Package/> */}
       {/* <TravelAgentPage/> */}
+      {/* <TravelAgentHotel/> */}
+      {/* <TravelAgentSpot/> */}
       {/* <ShowPlace/> */}
+      {/* <Invoice/> */}
     </>
   );
 }
