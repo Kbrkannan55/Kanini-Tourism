@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import Logo from '../../Assets/traveltour1.jpg'
-import './TravelAgentPage.css'
-import ShowPlace from '../Places/ShowPlace'
+import './TravelAgentPackage.css'
+import AddingPackage from '../AddingPackage/AddingPackage'
 
-const TravelAgentPage = () => {
+const TravelAgentPackage = () => {
     const [showLink, setShowLink] = useState(false);
 
     const toggleLinks = () => {
@@ -25,32 +25,40 @@ const TravelAgentPage = () => {
                 </div>
                 <ul className={`navbar-links ${showLink ? 'active' : ''}`}>
                     <li>
-                        Home
+                        HOME
                     </li>
                     <li>
-                        Packages
+                        PACKAGE
                     </li>
                     <li>
-                        Logout
+                        LOGOUT
                     </li>
                 </ul>
 
             </nav>
+           
 
             <div className='travelagentdiv'>
                 <div className='travelagentnav'>
-                    <div>Add Place</div>
-                    <div>Add Spot</div>
-                    <div>Add Hotel</div>
-                    <div>Add Package</div>
+                    <div>ADD PLACE</div>
+                    <div>ADD SPOT</div>
+                    <div>ADD HOTEL</div>
+                    <div>ADD PACKAGE</div>
                     
                 </div>
             </div>
+            <div className="col-md-12">
+                <div className="jumbotron jumbotron-fluid py-4">
+                    <div className="container text-center">
+                        <h1 className="display-4">ADD PACKAGE</h1>
+                    </div>
+                </div>
+            </div>
 
-            <ShowPlace/>
+            <AddingPackage/>
 
         </div>
     )
 }
 
-export default TravelAgentPage
+export default TravelAgentPackage

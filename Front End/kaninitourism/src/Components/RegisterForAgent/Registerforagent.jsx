@@ -3,6 +3,7 @@ import { TextField, Button } from '@mui/material';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Registerforagent.css';
+import Navbar from '../Navbar/Navbar';
 
 const RegisterForAgent = () => {
     const [userDTO, setUserDTO] = useState({
@@ -68,7 +69,9 @@ const RegisterForAgent = () => {
     };
 
     return (
-        <div className="user-register-container">
+        <>
+        <Navbar/>
+            <div className="user-register-container">
             <div className="user-register-title">Agent Registration</div>
             <div className="input-container">
                 <TextField
@@ -147,6 +150,7 @@ const RegisterForAgent = () => {
             </div>
             {success && <div className="success">Registered successfully!</div>}
         </div>
+        </>
     );
 };
 

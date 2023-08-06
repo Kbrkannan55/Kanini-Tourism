@@ -74,7 +74,7 @@ const Home = () => {
       <div className='total-home-div'>
       <div className="background-image" style={{marginTop:'-20px',borderRadius:'0px'}} >
         <h1>Travel to Explore</h1>
-        <a style={{textDecoration:'none',color:'white',fontSize:'14px'}} href='#our-services'>Read more</a>
+        <a style={{textDecoration:'none',backgroundColor:'red',width:'150px',borderRadius:'15px',color:'white',fontSize:'14px'}} href='#our-services'>Read more</a>
       </div>
       <div className="bg1">
 

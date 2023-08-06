@@ -43,7 +43,7 @@ const TravelAgentHotel = () => {
                     <div>Add Place</div>
                     <div>Add Spot</div>
                     <div>Add Hotel</div>
-                    
+                    <div>Add Package</div>
                 </div>
             </div>
 

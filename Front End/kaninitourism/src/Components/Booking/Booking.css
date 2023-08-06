@@ -7,7 +7,7 @@
   align-items: center;
   padding: 20px;
   background-color: white;
-  color: #fff;
+  /* color: #fff; */
   position: relative;
 
 }
@@ -88,12 +88,12 @@
 
 .navbar-links a {
   text-decoration: none;
-  color: #fff;
+  /* color: #fff; */
   transition: color 0.2s;
 }
 
 .navbar-links a:hover {
-  color: #fff;
+  /* color: #fff; */
   text-decoration: underline;
 }
 
@@ -106,4 +106,8 @@
   .navbar-toggle {
       display: flex;
   }
+}
+
+.booking-li{
+  margin-left: -400px;
 }

@@ -1,7 +1,31 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Logo from '../../Assets/logo.jpg';
-import './Booking.css'; 
+import * as yup from 'yup';
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  CssBaseline,
+  Drawer,
+  IconButton,
+  Toolbar,
+  Typography,
+  TextField,
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { Link } from 'react-router-dom';
+import './Booking.css';
+import Logo from '../../Assets/traveltour.png';
+
+const validationSchema = yup.object().shape({
+  id: yup.number().required('User ID is required'),
+  name: yup.string().required('Name is required'),
+  startDate: yup.date().required('Start Date is required'),
+  count: yup.number().required('Total Count is required'),
+  packageID: yup.number().required('Package ID is required'),
+});
 
 const Booking = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -12,6 +36,8 @@ const Booking = () => {
     count: '',
     packageID: '',
   });
+
+  const [errors, setErrors] = useState({});
 
   const toggleLinks = () => {
     setShowLinks(!showLinks);
@@ -26,98 +52,152 @@ const Booking = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault();
     try {
-      console.log(formData);
+      await validationSchema.validate(formData, { abortEarly: false });
       const response = await axios.post('https://localhost:7050/api/Booking', formData);
-      console.log(response.data); 
-
+      console.log(response.data);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      if (error instanceof yup.ValidationError) {
+        const newErrors = {};
+        error.inner.forEach((validationError) => {
+          newErrors[validationError.path] = validationError.message;
+        });
+        setErrors(newErrors);
+      } else {
+        console.error('Error submitting form:', error);
+      }
     }
   };
 
   return (
-    <div>
-      <nav className="navbar">
-        <div className="navbar-logo">
-          <img className="image-logo" src={Logo} style={{width:'170px',height:'120px'}} alt="Logo" />
-        </div>
-        <div className={`navbar-toggle ${showLinks ? 'active' : ''}`} onClick={toggleLinks}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <ul className={`navbar-links ${showLinks ? 'active' : ''}`}>
-          <li>Home</li>
-          <li>Packages</li>
-          <li>Logout</li>
-        </ul>
-      </nav>
-
-      <div className="booking-form-container">
-        <h2>Booking Form</h2>
-        <form onSubmit={handleSubmit}>
-
-          <label htmlFor="id">User ID:</label>
-          <input
-            type="number"
-            id="id"
-            name="id"
-            value={formData.id}
-            onChange={handleChange}
-            required
-          />
-          <br />
-
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-           
-          
-            required
-          />
-          <br />
-
-          <label htmlFor="startDate">Start Date:</label>
-          <input
-            type="date"
-            id="startDate"
-            name="startDate"
-            value={formData.startDate}
-            onChange={handleChange}
-            required
-          />
-          <br />
-
-          <label htmlFor="count">Total Count:</label>
-          <input
-            type="number"
-            id="count"
-            name="count"
-            value={formData.count}
-            onChange={handleChange}
-            required
-          />
-          <br />
-
-          <label htmlFor="packageID">Package ID:</label>
-          <input
-            type="number"
-            id="packageID"
-            name="packageID"
-            value={formData.packageID}
-            onChange={handleChange}
-            required
-          />
-          <br />
-
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+        }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleLinks}
+            edge="start"
+            sx={{
+              ...(showLinks && { display: 'none' }),
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            <img src={Logo} style={{ height: '90px', width: '120px', borderRadius: '10px' }} alt="Logo" />
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="temporary"
+        sx={{
+          width: 30,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: 150,
+            boxSizing: 'border-box',
+          },
+        }}
+        open={showLinks}
+        onClose={toggleLinks}
+      >
+        <Toolbar sx={{ justifyContent: 'flex-end' }}>
+          <IconButton onClick={toggleLinks}>
+            <ChevronLeftIcon />
+          </IconButton>
+        </Toolbar>
+        <Box sx={{ overflow: 'auto' }}>
+          <ul className={`navbar-links ${showLinks ? 'active' : ''}`}>
+            <li className='booking-li'>
+              Home
+            </li>
+            <li className='booking-li'>
+              Packages
+            </li>
+            <li className='booking-li'>
+              Logout
+            </li>
+          </ul>
+        </Box>
+      </Drawer>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar />
+        <Container maxWidth="sm" sx={{ marginTop: '2rem' }}>
+          <Typography variant="h4" component="h2" gutterBottom>
+            Book and Pay
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <TextField
+              fullWidth
+              margin="normal"
+              label="User ID"
+              name="id"
+              value={formData.id}
+              onChange={handleChange}
+              required
+              error={!!errors.id}
+              helperText={errors.id}
+            />
+            <TextField
+              fullWidth
+              margin="normal"
+              label="Name"
+              name="name"
+              required
+              error={!!errors.name}
+              helperText={errors.name}
+            />
+            <TextField
+              fullWidth
+              margin="normal"
+              label=""
+              type="date"
+              name="startDate"
+              value={formData.startDate}
+              onChange={handleChange}
+              required
+              error={!!errors.startDate}
+              helperText={errors.startDate}
+            />
+            <TextField
+              fullWidth
+              margin="normal"
+              label="Total Count"
+              name="count"
+              type="number"
+              value={formData.count}
+              onChange={handleChange}
+              required
+              error={!!errors.count}
+              helperText={errors.count}
+            />
+            <TextField
+              fullWidth
+              margin="normal"
+              label="Package ID"
+              name="packageID"
+              type="number"
+              value={formData.packageID}
+              onChange={handleChange}
+              required
+              error={!!errors.packageID}
+              helperText={errors.packageID}
+            />
+            <Button type="submit" variant="contained" color="primary">
+              Submit
+            </Button>
+          </form>
+        </Container>
+      </Box>
+    </Box>
   );
 };
 

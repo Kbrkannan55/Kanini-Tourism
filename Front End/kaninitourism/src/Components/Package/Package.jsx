@@ -5,7 +5,7 @@ import axios from 'axios';
 import PackageModal from './PackageModal'; // Import the PackageModal component
 import './Package.css';
 
-const API_BASE_URL = 'https://localhost:7050/api/Package'; // Replace with your API endpoint
+const API_BASE_URL = 'https://localhost:7050/api/Package';
 
 const Package = () => {
   const [packages, setPackages] = useState([]);

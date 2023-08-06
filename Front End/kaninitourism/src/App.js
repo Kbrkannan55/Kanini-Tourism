@@ -26,6 +26,9 @@ import Invoice from './Components/Invoice/Invoice';
 import TravelAgentHotel from './Components/TravelAgentHotel.jsx/TravelAgentHotel';
 import TravelAgentSpot from './Components/TravelAgentSpot/TravelAgentSpot';
 import NotFoundPage from './Components/NotFoundPage/NotFoundPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AddingPackage from './Components/AddingPackage/AddingPackage';
+import TravelAgentPackage from './Components/TravelAgentPackage/TravelAgentPackage';
 
 
 function App() {
@@ -39,8 +42,9 @@ function App() {
       {/* <Home/> */}
       {/* <NotFoundPage/> */}
       {/* <Navbar/> */}
-      <Register/>
+      {/* <Register/> */}
       {/* <Login/> */}
+      {/* <Navbar/> */}
       {/* <Home/> */}
       {/* <TravelAgentPage/> */}
       {/* <RegistrationForm/> */}
@@ -64,6 +68,14 @@ function App() {
       {/* <TravelAgentSpot/> */}
       {/* <ShowPlace/> */}
       {/* <Invoice/> */}
+      {/* <BrowserRouter>
+      <Routes>
+      <Route path='/' element={<Home/>}/>
+      </Routes>
+      </BrowserRouter> */}
+      {/* <AddingPackage/> */}
+      {/* <TravelAgentPackage/> */}
+
     </>
   );
 }

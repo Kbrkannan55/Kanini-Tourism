@@ -7,7 +7,7 @@
   align-items: center;
   padding: 20px;
   background-color: white;
-  color: #fff;
+
   position: relative;
 
 }
@@ -89,7 +89,6 @@
 
 .navbar-links a {
   text-decoration: none;
-  color: #fff;
   transition: color 0.2s;
 }
 
