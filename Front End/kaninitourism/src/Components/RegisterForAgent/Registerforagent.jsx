@@ -57,10 +57,9 @@ const RegisterForAgent = () => {
                 body: JSON.stringify(userDTO),
             }).then(async (data) => {
                 if (data.status === 200) {
-                    // for toast message successfully
                     var user = await data.json();
                     setSuccess(true);
-                    toast.success('Wait for Admin Approval');
+                    toast.success('Wait for 24 hrs and then Login In');
                 } else {
                     toast.error('Warning !');
                 }

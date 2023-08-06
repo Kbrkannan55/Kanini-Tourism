@@ -3,7 +3,7 @@ import { TextField, Button } from '@mui/material';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
-import { Navbar } from 'react-bootstrap';
+import Navbar from '../Navbar/Navbar';
 
 const Register = () => {
   const [userDTO, setUserDTO] = useState({
@@ -70,8 +70,10 @@ const Register = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="user-register-container">
-      <Navbar/>
+    
       <div className="user-register-title">User Register</div>
       <div className="input-container">
         <TextField
@@ -136,10 +138,14 @@ const Register = () => {
       <div className="button-container">
         <Button variant="contained" color="primary" onClick={register}>
           Register
+        </Button>&nbsp;&nbsp;&nbsp;
+        <Button variant="contained" color="primary">
+          Login
         </Button>
       </div>
       {success && <div className="success">Registered successfully!</div>}
     </div>
+    </>
   );
 };
 

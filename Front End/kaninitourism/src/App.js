@@ -25,6 +25,7 @@ import Booking from './Components/Booking/Booking';
 import Invoice from './Components/Invoice/Invoice';
 import TravelAgentHotel from './Components/TravelAgentHotel.jsx/TravelAgentHotel';
 import TravelAgentSpot from './Components/TravelAgentSpot/TravelAgentSpot';
+import NotFoundPage from './Components/NotFoundPage/NotFoundPage';
 
 
 function App() {
@@ -36,10 +37,11 @@ function App() {
       <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet"></link>
       {/* <Booking/> */}
       {/* <Home/> */}
+      {/* <NotFoundPage/> */}
       {/* <Navbar/> */}
-      {/* <Register/> */}
+      <Register/>
       {/* <Login/> */}
-      <Home/>
+      {/* <Home/> */}
       {/* <TravelAgentPage/> */}
       {/* <RegistrationForm/> */}
       {/* <RegistrationFormforAgent/> */}

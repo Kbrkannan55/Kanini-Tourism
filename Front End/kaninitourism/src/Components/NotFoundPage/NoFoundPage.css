@@ -1,0 +1,11 @@
+.notfoundpage{
+    background-image: url(../../Assets/404notfound.jpg);
+    width: 50%;
+    height: 800px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
