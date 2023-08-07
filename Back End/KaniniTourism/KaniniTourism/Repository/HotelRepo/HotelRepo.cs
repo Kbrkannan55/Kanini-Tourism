@@ -1,4 +1,5 @@
-﻿using KaniniTourism.Models;
+﻿using KaniniTourism.GlobalExceptions;
+using KaniniTourism.Models;
 using loginauth.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,10 @@ namespace KaniniTourism.Repository.HotelRepo
         public async Task<ActionResult<List<Hotels>>> GetAllHotels()
         {
             var details = await _context.hotels.ToListAsync();
+            if (details == null)
+            {
+                throw new Exception(CustomException.ExceptionMessages["Empty"]);
+            }
             return details;
         }
 

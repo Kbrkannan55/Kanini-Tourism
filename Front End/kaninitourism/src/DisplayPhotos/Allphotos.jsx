@@ -30,8 +30,7 @@ const Allphotos = () => {
 
     return (
         <div className='container gallry'>
-            {/* <p className='packhead' style={{textAlign:'center',fontSize:'18px'}}>POPULAR PLACES</p> */}
-            <div className='alligs'>
+           <div className='alligs'>
                 <div>
                     <p className='gallryhead'></p>
                 </div>

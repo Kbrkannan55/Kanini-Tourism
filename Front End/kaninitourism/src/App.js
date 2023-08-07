@@ -49,15 +49,15 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Register />} />
           <Route path='/agentsignup' element={<RegistrationFormforAgent />} />
-          <Route path='/adminpage' element={roles === "Admin" ? (<Adminpage />) : (<NotFoundPage />)} />
-          <Route path='/agentpage' element={roles === "Agent" ? (<TravelAgentPackage />) : (<NotFoundPage />)} />
+          <Route path='/adminpage' element={(roles === "Admin") ? <Adminpage /> : <NotFoundPage />} />
+          <Route path='/agentpage' element={(roles === "Agent") ? <TravelAgentPackage /> : <NotFoundPage />} />
           <Route path='/book' element={<Booking />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/invoice' element={<Invoice />} />
-          <Route path='/avaiableagencies' element={roles === "Admin" ? <AvailableAgencies />:<NotFoundPage/>} />
-          <Route path='/adminimage' element={sessionStorage.getItem('role') === "Admin" ?<ShowAdminImage />:<NotFoundPage/>} />
+          <Route path='/avaiableagencies' element={(roles === "Admin") ? <AvailableAgencies />:<NotFoundPage/>} />
+          <Route path='/adminimage' element={roles === "Admin" ? <ShowAdminImage />:<NotFoundPage/>} />
           <Route path='/showplace' element={<ShowPlace />} />
-          <Route path='/*' element={<NotFoundPage />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>

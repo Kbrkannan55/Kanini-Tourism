@@ -64,6 +64,7 @@ namespace KaniniTourism.Controllers
                 .ToListAsync();
         }
 
+
         //to update the images with details
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPlaceDetails(int id, [FromForm] ImageGallery updatePlace)
@@ -105,7 +106,8 @@ namespace KaniniTourism.Controllers
         {
             return _context.imageGallery.Any(e => e.AdminImgsId == id);
         }
-
+/*
+        [Authorize(Roles = "Admin")]*/
         //to delete images
         [HttpDelete("{id}")]
         public async Task<ActionResult<ImageGallery>> DeletePlaceDetail(int id)

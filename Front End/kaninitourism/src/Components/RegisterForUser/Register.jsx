@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
 import Navbar from '../Navbar/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [userDTO, setUserDTO] = useState({
@@ -17,6 +17,7 @@ const Register = () => {
   });
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
 
   const validateForm = () => {
     const newErrors = {};
@@ -63,6 +64,7 @@ const Register = () => {
           var user = await data.json();
           setSuccess(true);
           toast.success('Registered successfully!');
+          navigate('/book')
         } else {
           toast.error('Warning !');
         }

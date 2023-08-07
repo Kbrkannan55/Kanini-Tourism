@@ -38,7 +38,11 @@ namespace KaniniTourism.Repository.TravelAgentRequest
         public async Task<ActionResult<List<TravelAgent>>> DeleteTravelAgent(int id)
         {
           var details= _context.travelAgents.Find(id);
-             _context.Remove(details);
+            if (details == null)
+            {
+                throw new Exception(CustomException.ExceptionMessages["Empty"]);
+            }
+            _context.Remove(details);
             await _context.SaveChangesAsync();
             return await _context.travelAgents.ToListAsync();
 

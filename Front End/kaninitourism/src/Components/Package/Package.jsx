@@ -73,9 +73,10 @@ const Package = () => {
   return (
     <div className='Package-whole-page'>
       <Navbar />
+      <Allphotos/>
       <div className="tops-img">
       </div>
-      <Allphotos/>
+      
       <div className='search-container' style={{ marginTop: '20px' }}>
         <input
           type='text'

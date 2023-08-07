@@ -22,11 +22,10 @@ const PackageModal = ({ isOpen, closeModal, packageData }) => {
           <p><strong>Total Days :</strong> {packageData.totaldays}</p>
           <p><strong>Vehicle Type :</strong> {packageData.vehicleType}</p>
           <p><strong>Itinerary Details :</strong> {packageData.itineraryDetails}</p>
-          {/* Add more details as needed */}
         </div>
         <div className='Modal-buttons'>
           <button className='Close-button' onClick={closeModal}>Close</button>
-          <button className='Book-button'> <Link style={{textDecoration:'none',color:'white'}} to={'/book'}>Book Now</Link> </button>
+          <button className='Book-button'> <Link style={{textDecoration:'none',color:'white'}} to={'/login'}>Book Now</Link> </button>
         </div>
       </div>
     </Modal>

@@ -12,6 +12,7 @@ using KaniniTourism.Models;
 using KaniniTourism.Repository.UserRepo;
 using Serilog;
 using Microsoft.Azure.Cosmos.Serialization.HybridRow;
+using Microsoft.AspNetCore.Authorization;
 
 namespace loginauth.Controllers
 {
@@ -74,7 +75,7 @@ namespace loginauth.Controllers
             }
         }
 
-
+        /*[Authorize(Roles = "Admin")]*/
         [HttpGet]
         public async Task<ActionResult<List<User>>> GetAllAgent()
         {
@@ -88,7 +89,7 @@ namespace loginauth.Controllers
             }
         }
 
-
+      /*  [Authorize(Roles = "Admin")]*/
         [HttpDelete("Delete")]
         public async Task<ActionResult<List<User>>> DeleteAgent(int id)
         {

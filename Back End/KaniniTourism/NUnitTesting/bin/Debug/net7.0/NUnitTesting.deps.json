@@ -9,6 +9,7 @@
       "NUnitTesting/1.0.0": {
         "dependencies": {
           "KaniniTourism": "1.0.0",
+          "Microsoft.EntityFrameworkCore.InMemory": "7.0.9",
           "Microsoft.NET.Test.Sdk": "17.5.0",
           "Moq": "4.18.4",
           "NUnit": "3.13.3",
@@ -1397,6 +1398,17 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/7.0.9": {},
+      "Microsoft.EntityFrameworkCore.InMemory/7.0.9": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.9"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "7.0.9.0",
+            "fileVersion": "7.0.923.31909"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/7.0.9": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.9",
@@ -3304,6 +3316,13 @@
       "sha512": "sha512-VvqFD3DdML6LhPCAR/lG2xNX66juylC8v57yUAAYnUSdEUOMRi3lNoT4OrNdG0rere3UOQPhvVl5FH2QdyoF8Q==",
       "path": "microsoft.entityframeworkcore.analyzers/7.0.9",
       "hashPath": "microsoft.entityframeworkcore.analyzers.7.0.9.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/7.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I8Vv9Qj8WVetEh2xfNZRMaCliHQT2fScepvDHTV4lgEs4GKqvBhBKv45RvSdfjSHvg7GI48JQbSeWz0IblAxSQ==",
+      "path": "microsoft.entityframeworkcore.inmemory/7.0.9",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.7.0.9.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/7.0.9": {
       "type": "package",

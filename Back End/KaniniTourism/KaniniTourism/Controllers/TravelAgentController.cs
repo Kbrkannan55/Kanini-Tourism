@@ -1,5 +1,6 @@
 ﻿using KaniniTourism.Models;
 using KaniniTourism.Repository.TravelAgentRequest;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace KaniniTourism.Controllers
             _context = context;
         }
 
-
+       /* [Authorize(Roles ="Admin")]*/
         [HttpGet]
         public async Task<ActionResult<List<TravelAgent>>> GetAllTravelAgentRequest()
         {
@@ -43,7 +44,7 @@ namespace KaniniTourism.Controllers
             }
         }
 
-
+       /* [Authorize(Roles = "Admin")]*/
         [HttpDelete]
         public async Task<ActionResult<List<TravelAgent>>> DeleteTravelAgent(int id)
         {

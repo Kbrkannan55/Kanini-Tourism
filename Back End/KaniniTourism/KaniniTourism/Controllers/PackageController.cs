@@ -1,5 +1,6 @@
 ﻿using KaniniTourism.Models;
 using KaniniTourism.Repository.PackageServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,7 +31,7 @@ namespace KaniniTourism.Controllers
             }
         }
 
-
+/*        [Authorize(Roles = "Agent")]*/
         [HttpPost]
         public async Task<ActionResult<List<Package>>> PostPackages(Package package)
         {

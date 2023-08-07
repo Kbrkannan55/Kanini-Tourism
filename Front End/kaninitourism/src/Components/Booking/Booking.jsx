@@ -87,6 +87,7 @@ const Booking = () => {
     }));
   };
   const [invoicechange, setinvoicechange] = useState(1000)
+ 
 
 const handleSubmit = async (event) => {
   event.preventDefault();
@@ -95,25 +96,17 @@ const handleSubmit = async (event) => {
     console.log(response.data);
     toast.success('Booked successfully!');
     setinvoicechange(invoicechange + 1);
-
-    // Generate the PDF content
     const pdfData = (
       <PdfDocument formData={formData} />
     );
     const doc = new jsPDF();
-
-    // Add an image/logo
     const logoImage = new Image();
-    logoImage.src = Bookings; // Make sure you import or set the correct image source
+    logoImage.src = Bookings;
     doc.addImage(logoImage, 'JPEG', 10, 10, 40, 40);
-
-    // Title and headings
     doc.setFontSize(18);
     doc.text('TT Tourism', 60, 25);
     doc.setFontSize(14);
     doc.text('Booking Invoice', 60, 40);
-
-    // Details
     doc.setFontSize(12);
     doc.text(`Start Date: ${formData.startDate}`, 20, 60);
     doc.text(`Total Count: ${formData.count}`, 20, 70);
@@ -139,7 +132,7 @@ const handleSubmit = async (event) => {
     });
 
     alert("Now Pay Advance and take a screenshot of it");
-    navigate('/invoice');
+    navigate('/payment');
   } catch (error) {
     if (error instanceof yup.ValidationError) {
       const newErrors = {};
@@ -258,18 +251,6 @@ const handleSubmit = async (event) => {
               error={!!errors.count}
               helperText={errors.count}
             />
-            {/* <TextField
-              fullWidth
-              margin="normal"
-              label="Package ID"
-              name="packageID"
-              type="number"
-              value={formData.packageID}
-              onChange={handleChange}
-              required
-              error={!!errors.packageID}
-              helperText={errors.packageID}
-            /> */}
             <Button type="submit" variant="contained" color="primary" >
               Submit
             </Button>

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const Adminpage = () => {
     const [showLink, setShowLink] = useState(false);
     const [agent, setAgent] = useState([]);
+    const token = sessionStorage.getItem('token');
 
     const toggleLinks = () => {
         setShowLink(!showLink);
@@ -34,7 +35,8 @@ const Adminpage = () => {
         axios.post(approveUrl, postData, {
             headers: {
                 'Content-Type': 'application/json',
-                // Add any other headers you may need, such as authorization headers
+                "accept":'text/plain',
+                "Authorization" :"Bearer " + token
             },
         })
             .then(response => {
@@ -63,7 +65,8 @@ const Adminpage = () => {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                // Add any other headers you may need, such as authorization headers
+                "accept":'text/plain',
+                "Authorization" :"Bearer " + token
             },
         })
             .then(response => {
@@ -84,7 +87,8 @@ const Adminpage = () => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                // Add any other headers you may need, such as authorization headers
+                "accept":'text/plain',
+                "Authorization" :"Bearer " + token
             },
         })
             .then(response => {
@@ -144,7 +148,6 @@ const Adminpage = () => {
                                 <th>Name</th>
                                 <th>Phone Number</th>
                                 <th>Email</th>
-                                {/* <th>Password</th> */}
                                 <th>Action</th>
                                 <th>Action</th>
                             </tr>

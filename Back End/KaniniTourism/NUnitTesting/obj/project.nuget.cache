@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gcboVREXpeAk4pZ+Lg4MFR81BamtEY02TLrF+9zcrPP4/y2LOQhYcULCzGJXSSiM4LECHQEUbpeAdUBbL8WIqg==",
+  "dgSpecHash": "TzJUqu2d/acwDsPoeu6c6YcE6HWGN2XZBcriytBrQ1dwf/7qwTkXFMiWMSSC1l91dyldSnGtSMdE0XnYBM7pbw==",
   "success": true,
   "projectFilePath": "C:\\Users\\kbrka\\OneDrive\\Desktop\\practical training\\Kanini Tourism Website\\Back End\\KaniniTourism\\NUnitTesting\\NUnitTesting.csproj",
   "expectedPackageFiles": [
@@ -97,6 +97,7 @@
     "C:\\Users\\kbrka\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.9\\microsoft.entityframeworkcore.7.0.9.nupkg.sha512",
     "C:\\Users\\kbrka\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.9\\microsoft.entityframeworkcore.abstractions.7.0.9.nupkg.sha512",
     "C:\\Users\\kbrka\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.9\\microsoft.entityframeworkcore.analyzers.7.0.9.nupkg.sha512",
+    "C:\\Users\\kbrka\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\7.0.9\\microsoft.entityframeworkcore.inmemory.7.0.9.nupkg.sha512",
     "C:\\Users\\kbrka\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.9\\microsoft.entityframeworkcore.relational.7.0.9.nupkg.sha512",
     "C:\\Users\\kbrka\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.9\\microsoft.entityframeworkcore.sqlserver.7.0.9.nupkg.sha512",
     "C:\\Users\\kbrka\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

@@ -151,12 +151,10 @@
   }
 
 
-  /* ... (existing styles) */
-
 .Modal-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Adjust alignment */
+    align-items: flex-start;
     padding: 20px;
   }
   

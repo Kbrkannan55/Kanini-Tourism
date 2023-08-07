@@ -19,6 +19,7 @@ import Blog4 from '../../Assets/travel4.jpg'
 import Footer from '../Footer/Footer'
 import Chatbot from '../Chatbot/Chatbot'
 import Allphotos from '../../DisplayPhotos/Allphotos'
+import { Link } from 'react-router-dom'
 
 
 
@@ -135,7 +136,7 @@ const Home = () => {
           <div className="main-destination">
             <div className="inner-destination">
               <div className="main-image">
-                <img src={Destination1} />
+          <img src={Destination1} />
               </div>
 
               <h5>Singapore</h5>
