@@ -74,7 +74,7 @@ const Home = () => {
 
       <Navbar />
       <div className='total-home-div'>
-        <div className="background-image" style={{ marginTop: '-20px', borderRadius: '10px' }} >
+        <div className="background-image" style={{ marginTop: '-20px', borderRadius: ' 10px ' }} >
           <h1>Travel to Explore</h1>
           <a style={{ textDecoration: 'none', backgroundColor: 'lightred', width: '150px', borderRadius: '15px', color: 'white', fontSize: '14px' }} href='#our-services'>Read more</a>
         </div>

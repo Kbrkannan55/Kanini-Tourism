@@ -1,5 +1,3 @@
-/* Navbar.css */
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -54,7 +52,7 @@
   .navbar-links {
     position: absolute;
     top: 80px;
-    left: 0;
+    left: -228px;
     width: 100%;
 
     flex-direction: column;
@@ -67,5 +65,28 @@
 
   .navbar-links.active {
     transform: translateY(0);
+    left: -228px;
+  }
+}
+
+
+
+/* Your existing CSS rules can remain mostly unchanged. */
+/* Navbar Styles */
+.navbar {
+  border-radius: 0 55px 55px;
+  background-color: aliceblue;
+  color: black;
+}
+
+.image-logo {
+  width: 100px;
+  height: auto;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .MuiDrawer-root {
+    width: 240px; /* Adjust drawer width */
   }
 }

@@ -6,9 +6,7 @@ import { Card, CardContent } from '@mui/material';
 
 
 const Allphotos = () => {
-
     const [galleryList, setgalleryList] = useState([]);
-
     useEffect(() => {
         refreshgalleryList();
     }, []);
@@ -30,7 +28,7 @@ const Allphotos = () => {
 
     return (
         <div className='container gallry'>
-           <div className='alligs'>
+            <div className='alligs'>
                 <div>
                     <p className='gallryhead'></p>
                 </div>
@@ -38,7 +36,7 @@ const Allphotos = () => {
                     <Carousel fade className='caroslheight'>
                         {galleryList.map((data, i) => (
                             <Carousel.Item >
-                                <img src={data.imageSrc} className="card-img-top" alt="default images" style={{borderRadius:'30px',height:'800px'}} />
+                                <img src={data.imageSrc} className="card-img-top" alt="default images" style={{ borderRadius: '30px', height: '800px' }} />
                             </Carousel.Item>
                         ))}
                     </Carousel>
@@ -49,4 +47,4 @@ const Allphotos = () => {
     );
 }
 
-export default Allphotos
+export default Allphotos
