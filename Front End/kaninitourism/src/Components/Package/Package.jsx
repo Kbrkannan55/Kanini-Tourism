@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Image1 from '../../Assets/Travelplace2.jpg';
 import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
-import PackageModal from './PackageModal'; // Import the PackageModal component
+import PackageModal from './PackageModal';
 import './Package.css';
+import Allphotos from '../../DisplayPhotos/Allphotos';
 
 const API_BASE_URL = 'https://localhost:7050/api/Package';
 
@@ -19,7 +20,6 @@ const Package = () => {
   }, []);
 
   useEffect(() => {
-    // Debounce function to delay the filterPackages call
     const delayFilterPackages = setTimeout(() => {
       filterPackages();
     }, 300);
@@ -62,6 +62,7 @@ const Package = () => {
   };
 
   const openModal = (packageData) => {
+    sessionStorage.setItem('packageID',packageData.packageID)
     setSelectedPackage(packageData);
   };
 
@@ -72,11 +73,10 @@ const Package = () => {
   return (
     <div className='Package-whole-page'>
       <Navbar />
-      <div className='Package-top-Image'>
-        <img src={Image1} alt='Package' width={'100%'} style={{height:'660px'}}  />
+      <div className="tops-img">
       </div>
-
-      <div className='search-container' style={{marginTop:'10px'}}>
+      <Allphotos/>
+      <div className='search-container' style={{ marginTop: '20px' }}>
         <input
           type='text'
           placeholder='Search by package type'

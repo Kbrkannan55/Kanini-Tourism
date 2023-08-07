@@ -33,8 +33,9 @@ const ValidationSchema = yup.object().shape({
 });
 
 const AddingPackage = () => {
+    const idnumber = sessionStorage.getItem('id')
     const [formData, setFormData] = useState({
-        id: sessionStorage.getItem('Id'),
+        id: idnumber,
         packageType: '',
         description: '',
         pricePerPerson: '',
@@ -45,8 +46,8 @@ const AddingPackage = () => {
         nights: '',
         totaldays: '',
         itineraryDetails: '',
-        placeId: '',
-        hotelId: '',
+        placeId: 8,
+        hotelId: 2,
     });
 
     const [packages, setPackages] = useState([]);
@@ -118,9 +119,7 @@ const AddingPackage = () => {
                     days: '',
                     nights: '',
                     totaldays: '',
-                    itineraryDetails: '',
-                    placeId: '',
-                    hotelId: '',
+                    itineraryDetails: ''
                 });
                 toast.success('Package Added')
 

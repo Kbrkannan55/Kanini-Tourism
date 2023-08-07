@@ -34,10 +34,12 @@ import { NotificationsOffOutlined } from '@mui/icons-material';
 
 
 function App() {
+  const roles=sessionStorage.getItem('role')
 
 
   return (
     <>
+     
       <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet"></link>
       <BrowserRouter>
         <Routes>
@@ -47,14 +49,13 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Register />} />
           <Route path='/agentsignup' element={<RegistrationFormforAgent />} />
-          <Route path='/login/signup' element={<Register />} />
-          <Route path='/adminpage' element={sessionStorage.getItem('role') === "Admin" ? <Adminpage /> : <NotFoundPage />} />
-          <Route path='/agentpage' element={sessionStorage.getItem('role') === "Agent" ? <TravelAgentPackage /> : <NotFoundPage />} />
+          <Route path='/adminpage' element={roles === "Admin" ? (<Adminpage />) : (<NotFoundPage />)} />
+          <Route path='/agentpage' element={roles === "Agent" ? (<TravelAgentPackage />) : (<NotFoundPage />)} />
           <Route path='/book' element={<Booking />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/invoice' element={<Invoice />} />
-          <Route path='/avaiableagencies' element={sessionStorage.getItem('role') === "Admin" ? <AvailableAgencies />:<NotFoundPage/>} />
-          <Route path='/adminimage' element={sessionStorage.getItem('role') === "Admin" ?<AdminImage />:<NotFoundPage/>} />
+          <Route path='/avaiableagencies' element={roles === "Admin" ? <AvailableAgencies />:<NotFoundPage/>} />
+          <Route path='/adminimage' element={sessionStorage.getItem('role') === "Admin" ?<ShowAdminImage />:<NotFoundPage/>} />
           <Route path='/showplace' element={<ShowPlace />} />
           <Route path='/*' element={<NotFoundPage />} />
         </Routes>

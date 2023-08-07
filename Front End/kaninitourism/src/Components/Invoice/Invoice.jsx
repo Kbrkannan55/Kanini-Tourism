@@ -19,9 +19,7 @@ import './Invoice.css'
 const Invoice = (props) => {
   // Sample data for demonstration purposes
   const selectedPacks = [
-    { id: 1, name: 'Package A', customers: 2, adults: 1, children: 1 },
-    { id: 2, name: 'Package B', customers: 4, adults: 2, children: 2 },
-    { id: 3, name: 'Package C', customers: 3, adults: 1, children: 2 },
+   
   ];
 
   const totalAmount = 250; // Replace with the actual total amount
@@ -57,7 +55,7 @@ const Invoice = (props) => {
             <TableBody>
               {selectedPacks.map(pack => (
                 <TableRow key={pack.id}>
-                  <TableCell>{pack.name}</TableCell>
+                  <TableCell>{pack.packageID}</TableCell>
                   <TableCell>{pack.customers}</TableCell>
                   <TableCell>{pack.adults}</TableCell>
                   <TableCell>{pack.children}</TableCell>

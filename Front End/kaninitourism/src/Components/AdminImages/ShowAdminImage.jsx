@@ -4,6 +4,9 @@ import axios from 'axios';
 import Adminpage from '../Adminpage/Adminpage';
 import AdminImage from './AdminImage';
 import './AdminImages.css'
+import Navbar from '../Navbar/Navbar';
+import { Link } from 'react-router-dom';
+import Logo from '../../Assets/traveltour.png'
 
 function ShowAdminImage() {
     const [galleryList, setgalleryList] = useState([])
@@ -61,25 +64,56 @@ function ShowAdminImage() {
     }
 
     const imageCard = data => (
-        <div className="card" onClick={() => { showRecordDetails(data) }}>
-            <img src={data.imageSrc} className="card-img-top rounded-circle" />
-            <div className="card-body">
-                <h5>{data.location}</h5>
-                <span>{data.description}</span> <br />
-                <button className="btn btn-light delete-button" onClick={e => onDelete(e, parseInt(data.adminImgsId))}>
-                    <i className="far fa-trash-alt"></i>
-                </button>
-            </div>
+        <div className="card getimg" onClick={() => showRecordDetails(data)}>
+          <img src={data.imageSrc} alt="default images" />
+          <div className="card-body">
+            <h5>{data.locationName}</h5>
+            <span className="locationdesc">{data.locationDescription}</span> <br />
+            <button
+              className="btn btn-danger"
+              onClick={e => onDelete(e, parseInt(data.adminImgsId))}
+            >
+              <i className="far fa-trash-alt" style={{color:'white'}}></i>
+            </button>
+          </div>
         </div>
-    )
+      );
+      const [showLink, setShowLink] = useState(false);
+      const [agent, setAgent] = useState([]);
+  
+      const toggleLinks = () => {
+          setShowLink(!showLink);
+      };
+
+      const Logout=()=>{
+        sessionStorage.removeItem('role')
+        sessionStorage.removeItem('accessToken')
+        sessionStorage.removeItem('refreshToken')
+        sessionStorage.removeItem('Id')
+      }
 
 
     return (
+        <>
+         <nav className="navbar">
+                <div className="navbar-logo">
+                    <img className='image-logo' src={Logo} style={{height:'100px',width:'120px'}} alt="Logo" />
+                </div>
+                <div className={`navbar-toggle ${showLink ? 'active' : ''}`} onClick={toggleLinks}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul className={`navbar-links ${showLink ? 'active' : ''}`}>
+                 <Link style={{textDecoration:'none',color:'black'}} to={'/'}><li>Home</li></Link>
+                <Link style={{textDecoration:'none',color:'black'}} to={'/'}><li onClick={Logout}>Logout</li></Link>
+                </ul>
+            </nav>
         <div className="row">
             <div className="col-md-12">
                 <div className="jumbotron jumbotron-fluid py-4">
                     <div className="container text-center">
-                        <h1 className="display-4">Add/Edit - Location Details</h1>
+                        <h3>Add/Edit Place Details</h3>
                     </div>
                 </div>
             </div>
@@ -92,20 +126,16 @@ function ShowAdminImage() {
             <div className="col-md-8">
                 <table>
                     <tbody>
-                        {
-                            //tr > 3 td
-                            [...Array(Math.ceil(galleryList.length / 3))].map((e, i) =>
-                                <tr key={i}>
-                                    <td>{imageCard(galleryList[3 * i])}</td>
-                                    <td>{galleryList[3 * i + 1] ? imageCard(galleryList[3 * i + 1]) : null}</td>
-                                    <td>{galleryList[3 * i + 2] ? imageCard(galleryList[3 * i + 2]) : null}</td>
-                                </tr>
-                            )
-                        }
+                        {galleryList.map((data, i) => (
+                            <tr key={i}>
+                                <td>{imageCard(data)}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
         </div>
+        </>
     )
 }
 

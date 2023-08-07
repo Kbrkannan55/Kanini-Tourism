@@ -18,6 +18,7 @@ import Navbar from '../Navbar/Navbar'
 import Blog4 from '../../Assets/travel4.jpg'
 import Footer from '../Footer/Footer'
 import Chatbot from '../Chatbot/Chatbot'
+import Allphotos from '../../DisplayPhotos/Allphotos'
 
 
 
@@ -70,193 +71,191 @@ const Home = () => {
     <>
 
 
-      <Navbar/>
+      <Navbar />
       <div className='total-home-div'>
-      <div className="background-image" style={{marginTop:'-20px',borderRadius:'0px'}} >
-        <h1>Travel to Explore</h1>
-        <a style={{textDecoration:'none',backgroundColor:'red',width:'150px',borderRadius:'15px',color:'white',fontSize:'14px'}} href='#our-services'>Read more</a>
-      </div>
-      <div className="bg1">
-
-      </div>
-  <div className="bg2">
-        
-      </div>
-
-    
-      <div id='our-services' className="our-services" style={{fontSize:'14px'}} >
-        <h1 style={{fontSize:'32px'}}>Our <span>services</span></h1>
-        <div className="main-services">
-
-          <div class="inner-service">
-            <div class="inner-icons">
-              <img src={Service1}></img>
-            </div>
-            <h2 style={{fontSize:'28px'}}>Transportation <span>Service</span> </h2>
-            <p style={{fontSize:'16px'}}> Efficient and comfortable transportation options to get you around the destination.</p>
-
-          </div>
-
-          <div className="inner-service">
-            <div class="inner-icons">
-              <img src={Service1}></img>
-            </div>
-            <h2 style={{fontSize:'28px'}}>Sight <span>Seeing</span> Activities</h2>
-            <p style={{fontSize:'16px'}}>Explore the best attractions and landmarks with our guided sightseeing tours.</p>
-
-          </div>
-
-          <div className="inner-service">
-            <div class="inner-icons">
-              <img src={Service1}></img>
-            </div>
-            <h2 style={{fontSize:'28px'}}>Adventure <span>Activities</span></h2>
-            <p style={{fontSize:'16px'}}>Experience thrilling adventure activities, from hiking to water sports.</p>
-
-          </div>
-
-          <div class="inner-service">
-            <div className="inner-icons">
-              <img src={Service1}></img>
-            </div>
-            <h2 style={{fontSize:'28px'}}>Get <span>best</span> prices</h2>
-            <p style={{fontSize:'16px'}}>Pricing is the factor where we stand out from others, Massive Discount.</p>
-
-          </div>
-
+        <div className="background-image" style={{ marginTop: '-20px', borderRadius: '10px' }} >
+          <h1>Travel to Explore</h1>
+          <a style={{ textDecoration: 'none', backgroundColor: 'lightred', width: '150px', borderRadius: '15px', color: 'white', fontSize: '14px' }} href='#our-services'>Read more</a>
+        </div>
+        <div className="bg1">
 
         </div>
-      </div>
+        <div className="bg2">
+
+        </div>
 
 
-      <div className="recomended-destination">
-        <h1 style={{fontSize:'32px'}}>Most Liked <span>Destination</span></h1>
-        <div className="main-destination">
-          <div className="inner-destination">
-            <div className="main-image">
-              <img src={Destination1} />
-            </div>
+        <div id='our-services' className="our-services" style={{ fontSize: '14px' }} >
+          <h1 style={{ fontSize: '32px' }}>Our Services</h1>
+          <div className="main-services">
 
-            <h5>Singapore</h5>
-            <p></p>
-            <div className="dist-icons">
-              <img src={Icon1} />&nbsp;&nbsp;&nbsp;
-              <img src={Icon2} />&nbsp;&nbsp;&nbsp;
-              <img src={Icon3} />
-            </div>
-          </div>
-
-          <div className="inner-destination">
-            <div className="main-image">
-              <img src={Destination2} />
-            </div>
-            <h5>LasVegas</h5>
-            <p></p>
-            <div className="dist-icons">
-              <img src={Icon1} />&nbsp;&nbsp;&nbsp;
-              <img src={Icon2} />&nbsp;&nbsp;&nbsp;
-              <img src={Icon3} />
-            </div>
-          </div>
-
-          <div class="inner-destination">
-            <div class="main-image">
-              <img src={Destination3} />
-            </div>
-            <h5>Ooty</h5>
-            <p></p>
-            <div class="dist-icons">
-              <img src={Icon1} />&nbsp;&nbsp;&nbsp;
-              <img src={Icon2} />&nbsp;&nbsp;&nbsp;
-              <img src={Icon3} />
-            </div>
-          </div>
-          
-          <div class="inner-destination">
-            <div class="main-image">
-              <img src={Destination4} />
-            </div>
-            <h5>Black Thunder</h5>
-            <p></p>
-            <div class="dist-icons">
-              <img src={Icon1} />&nbsp;&nbsp;&nbsp;
-              <img src={Icon2} />&nbsp;&nbsp;&nbsp;
-              <img src={Icon3} />
-            </div>
-          </div>
-
-          <div class="inner-destination">
-            <div class="main-image">
-              <img style={{height:'360px',borderRadius:'15px'}} src={Destination5} />
-            </div>
-            <h5>Thailand</h5>
-            <p></p>
-            <div class="dist-icons">
-            </div>
-          </div>
-
-          <div class="inner-destination">
-            <div class="main-image">
-              <img style={{height:'360px',borderRadius:'15px',boxShadow:'5px 5px 10px grey'}} src={Destination6} />
-            </div>
-            <h5>Vagamon</h5>
-            <p></p>
-            <div class="dist-icons">
+            <div class="inner-service">
+              <div class="inner-icons">
+                <img src={Service1}></img>
+              </div>
+              <h2 style={{ fontSize: '28px' }}>Transportation Service </h2>
+              <p style={{ fontSize: '16px' }}> Efficient and comfortable transportation options to get you around the destination.</p>
 
             </div>
+
+            <div className="inner-service">
+              <div class="inner-icons">
+                <img src={Service1}></img>
+              </div>
+              <h2 style={{ fontSize: '28px' }}>Sight Seeing Activities</h2>
+              <p style={{ fontSize: '16px' }}>Explore the best attractions and landmarks with our guided sightseeing tours.</p>
+
+            </div>
+
+            <div className="inner-service">
+              <div class="inner-icons">
+                <img src={Service1}></img>
+              </div>
+              <h2 style={{ fontSize: '28px' }}>Adventure Activities</h2>
+              <p style={{ fontSize: '16px' }}>Experience thrilling adventure activities, from hiking to water sports.</p>
+
+            </div>
+
+            <div class="inner-service">
+              <div className="inner-icons">
+                <img src={Service1}></img>
+              </div>
+              <h2 style={{ fontSize: '28px' }}>Get Best Prices</h2>
+              <p style={{ fontSize: '16px' }}>Pricing is the factor where we stand out from others, Massive Discount.</p>
+
+            </div>
+
+
           </div>
         </div>
-      </div>
 
 
-      <div class="reviews">
-        <h4>Happy Customer</h4>
-        <div class="mian-review">
-          <div class="inner-review">
-            <p>Service Provided by them was faculus, I really liked it. I will suggest a lot of friends to make trip.</p>
+        <div className="recomended-destination">
+          <h1 style={{ fontSize: '32px' }}>Most Liked Destination</h1>
+          <div className="main-destination">
+            <div className="inner-destination">
+              <div className="main-image">
+                <img src={Destination1} />
+              </div>
 
-            <div class="review-client">
-              <img src={Review} />
-              <span style={{fontSize:'20px'}}>Jothika</span>
+              <h5>Singapore</h5>
+              <p></p>
+              <div className="dist-icons">
+                <img src={Icon1} />&nbsp;&nbsp;&nbsp;
+                <img src={Icon2} />&nbsp;&nbsp;&nbsp;
+                <img src={Icon3} />
+              </div>
             </div>
-          </div>
 
-
-          <div class="inner-review">
-            <p>Travel Agent was extremely friendly and I am looking forward to plan many Trips with them</p>
-
-            <div class="review-client">
-              <img src={Review} />
-              <span style={{fontSize:'20px'}}>Priya</span>
+            <div className="inner-destination">
+              <div className="main-image">
+                <img src={Destination2} />
+              </div>
+              <h5>LasVegas</h5>
+              <p></p>
+              <div className="dist-icons">
+                <img src={Icon1} />&nbsp;&nbsp;&nbsp;
+                <img src={Icon2} />&nbsp;&nbsp;&nbsp;
+                <img src={Icon3} />
+              </div>
             </div>
-          </div>
 
-
-          <div class="inner-review">
-            <p>Travel Agent was extremely friendly and I am looking forward to plan many Trips with them</p>
-
-            <div class="review-client">
-              <img src={Review} />
-              <span style={{fontSize:'20px'}}>Lavanya</span>
+            <div class="inner-destination">
+              <div class="main-image">
+                <img src={Destination3} />
+              </div>
+              <h5>Ooty</h5>
+              <p></p>
+              <div class="dist-icons">
+                <img src={Icon1} />&nbsp;&nbsp;&nbsp;
+                <img src={Icon2} />&nbsp;&nbsp;&nbsp;
+                <img src={Icon3} />
+              </div>
             </div>
-          </div>
 
+            <div class="inner-destination">
+              <div class="main-image">
+                <img src={Destination4} />
+              </div>
+              <h5>Black Thunder</h5>
+              <p></p>
+              <div class="dist-icons">
+                <img src={Icon1} />&nbsp;&nbsp;&nbsp;
+                <img src={Icon2} />&nbsp;&nbsp;&nbsp;
+                <img src={Icon3} />
+              </div>
+            </div>
 
-          <div class="inner-review">
-            <p>Travel Agent was extremely friendly and I am looking forward to plan many Trips with them. I had suggested many friends to book a trip with these people.</p>
+            <div class="inner-destination">
+              <div class="main-image">
+                <img style={{ height: '360px', borderRadius: '15px' }} src={Destination5} />
+              </div>
+              <h5>Thailand</h5>
+              <p></p>
+              <div class="dist-icons">
+              </div>
+            </div>
 
-            <div class="review-client">
-              <img src={Review} />
-              <span style={{fontSize:'20px'}}> Keerthika</span>
+            <div class="inner-destination">
+              <div class="main-image">
+                <img style={{ height: '360px', borderRadius: '15px', boxShadow: '5px 5px 10px grey' }} src={Destination6} />
+              </div>
+              <h5>Vagamon</h5>
+              <p></p>
+              <div class="dist-icons">
+
+              </div>
             </div>
           </div>
         </div>
-      </div>
-       {/* <Chatbot/> */}
-  
+        <Allphotos />
 
-      <button onClick={topFunction()} id="myBtn">UP</button>
-      <Footer/>
+
+        <div class="reviews">
+          <h4>Happy Customer</h4>
+          <div class="mian-review">
+            <div class="inner-review">
+              <p>Service Provided by them was faculus, I really liked it. I will suggest a lot of friends to make trip.</p>
+
+              <div class="review-client">
+                <img src={Review} />
+                <span style={{ fontSize: '20px' }}>Jothika</span>
+              </div>
+            </div>
+
+
+            <div class="inner-review">
+              <p>Travel Agent was extremely friendly and I am looking forward to plan many Trips with them</p>
+
+              <div class="review-client">
+                <img src={Review} />
+                <span style={{ fontSize: '20px' }}>Priya</span>
+              </div>
+            </div>
+
+
+            <div class="inner-review">
+              <p>Travel Agent was extremely friendly and I am looking forward to plan many Trips with them</p>
+
+              <div class="review-client">
+                <img src={Review} />
+                <span style={{ fontSize: '20px' }}>Lavanya</span>
+              </div>
+            </div>
+
+
+            <div class="inner-review">
+              <p>Travel Agent was extremely friendly and I am looking forward to plan many Trips with them. I had suggested many friends to book a trip with these people.</p>
+
+              <div class="review-client">
+                <img src={Review} />
+                <span style={{ fontSize: '20px' }}> Keerthika</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button onClick={topFunction()} id="myBtn">UP</button>
+        <Footer />
       </div>
     </>
   )

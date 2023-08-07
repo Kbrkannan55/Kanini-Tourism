@@ -43,7 +43,43 @@
 
 
 
+  .Package-top-Image {
+    position: relative;
+    overflow: hidden;
+  }
 
+  .Package-top-Image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+  }
+
+  .Package-heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aliceblue;
+    width: 250px;
+    padding: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+
+.tops-img{
+  margin-top: -10px;
+  background-image: url(../../Assets/Travelplace3.jpg);
+  width: 100%;
+  height: 800px;
+  background-size: cover;
+  background-attachment: fixed;
+  border-radius: 30px;
+}
   /* ... (existing styles) */
 
 .Modal {

@@ -55,6 +55,7 @@
   /* Header */
   .jumbotron {
     padding: 20px;
+    border-radius: 60px;
   }
   
   /* Image Card */
@@ -111,4 +112,8 @@
 
   .rounded-circle{
     border-radius: 0px;
+  }
+
+  .getimg{
+    width: 900px;
   }

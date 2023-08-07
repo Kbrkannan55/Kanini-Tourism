@@ -64,20 +64,7 @@ const Feedback = () => {
     <div>
       <Navbar />
       <div className="contact-page">
-        <section className="image-grid">
-          <div className="image-item">
-            <img src={image1} alt="Image 1" />
-          </div>
-          <div className="image-item">
-            <img src={image2} alt="Image 2" />
-          </div>
-          <div className="image-item">
-            <img src={image3} alt="Image 3" />
-          </div>
-          <div className="image-item">
-            <img src={image1} alt='Image 4'/>
-          </div>
-        </section>
+        <div className="bg-image-for-feedback"></div>
 
         <div className="Feedback_Form">
           <h1>Give Your Valuable Feedback </h1>

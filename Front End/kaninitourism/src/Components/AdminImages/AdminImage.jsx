@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const defaultImageSrc = '/Images/admindefaultimage.png'
+const defaultImageSrc = '/images/check.png'
 const initialFieldValues = {
     adminImgsId: 0,
     locationName: '',
@@ -85,16 +85,17 @@ export default function AdminImage(props) {
     const applyErrorClass = field => ((field in errors && errors[field] == false) ? ' invalid-field' : '')
 
     return (
-        <div>
+        
+        <div className='container'>
             <div className="container text-center">
                 <p className="lead"></p>
             </div>
             <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
                 <div className="card">
-                    <img src={values.imageSrc} className="card-img-top" style={{ width: '200px', height: '200px', textAlign: 'center' }} />
+                    <img src={values.imageSrc} className="card-img-top" style={{ width: '200px', height: '200px', margin:'0 auto',marginTop:'30px' }} />
                     <div className="card-body">
                         <div className="form-group">
-                            <input type="file" accept="image/*" className={"form-control-file" + applyErrorClass('imageSrc')}
+                            <input style={{marginLeft:'100px'}} type="file" accept="image/*" className={"form-control-file" + applyErrorClass('imageSrc')}
                                 onChange={showPreview} id="image-uploader" />
                         </div>
                         <div className="form-group">

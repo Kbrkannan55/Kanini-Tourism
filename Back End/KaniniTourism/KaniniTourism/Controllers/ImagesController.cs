@@ -1,13 +1,16 @@
 ﻿using KaniniTourism.Models;
 using loginauth.Context;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace KaniniTourism.Controllers
 {
+   /* [Authorize(Roles ="Admin")]*/
     [Route("api/[controller]")]
     [ApiController]
+    
     public class ImagesController : ControllerBase
     {
         private readonly TourismContext _context;

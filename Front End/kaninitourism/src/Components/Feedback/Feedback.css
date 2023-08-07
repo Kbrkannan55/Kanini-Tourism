@@ -159,3 +159,11 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
+
+.bg-image-for-feedback{
+  background-image: url(../../Assets/Feedback.jpg);
+  width: 100%;
+  height: 600px;
+  background-attachment: fixed;
+  background-size: cover;
+}

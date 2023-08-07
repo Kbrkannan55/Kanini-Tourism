@@ -1,0 +1,12 @@
+.getimg {
+    width: 500px; 
+    height: auto;
+  }
+ .caroslheight{
+    width: 100%;
+ }
+ .alligs{
+    display: flex;
+    justify-content: space-evenly;
+ }
+ 

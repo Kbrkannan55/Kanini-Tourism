@@ -23,6 +23,7 @@ import { PDFViewer, Page, Text, View, Document, StyleSheet } from '@react-pdf/re
 import './Booking.css';
 import Logo from '../../Assets/traveltour.png';
 import { ToastContainer, toast } from 'react-toastify';
+import Bookings from '../../Assets/traveltour.png'
 
 const validationSchema = yup.object().shape({
   id: yup.number().required('User ID is required'),
@@ -37,6 +38,7 @@ const PdfDocument = ({ formData }) => {
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.section}>
+         
           <Text>Name: {formData.name}</Text>
           <Text>Start Date: {formData.startDate}</Text>
           <Text>Total Count: {formData.count}</Text>
@@ -61,12 +63,13 @@ const styles = StyleSheet.create({
 
 const Booking = () => {
   const [showLinks, setShowLinks] = useState(false);
+  const newpackageid = sessionStorage.getItem('packageID')
   const [formData, setFormData] = useState({
     id: 2,
     name: '',
     startDate: '',
     count: '',
-    packageID: '',
+    packageID: newpackageid,
   });
 
   const [errors, setErrors] = useState({});
@@ -83,64 +86,81 @@ const Booking = () => {
       [name]: value,
     }));
   };
-  const [invoicechange,setinvoicechange]=useState(1000)
+  const [invoicechange, setinvoicechange] = useState(1000)
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      // await validationSchema.validate(formData, { abortEarly: false });
-      const response = await axios.post('https://localhost:7050/api/Booking', formData);
-      console.log(response.data);
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  try {
+    const response = await axios.post('https://localhost:7050/api/Booking', formData);
+    console.log(response.data);
+    toast.success('Booked successfully!');
+    setinvoicechange(invoicechange + 1);
 
-      // Display a success toast message
-      toast.success('Booked successfully!');
-      setinvoicechange(invoicechange+1);
+    // Generate the PDF content
+    const pdfData = (
+      <PdfDocument formData={formData} />
+    );
+    const doc = new jsPDF();
 
-      // Generate the PDF content
-      const pdfData = (
-        <PdfDocument formData={formData} />
-      );
+    // Add an image/logo
+    const logoImage = new Image();
+    logoImage.src = Bookings; // Make sure you import or set the correct image source
+    doc.addImage(logoImage, 'JPEG', 10, 10, 40, 40);
 
-      // Convert the PDF content to blob
-      const doc = new jsPDF();
+    // Title and headings
+    doc.setFontSize(18);
+    doc.text('TT Tourism', 60, 25);
+    doc.setFontSize(14);
+    doc.text('Booking Invoice', 60, 40);
 
-      // Set the content of the PDF
-      doc.text('TT Tourism', 20,10);
-      doc.text('Booking Invoice', 20, 20);
-      // doc.text(`Name: ${formData.name}`, 10, 20);
-      doc.text(`Start Date : ${formData.startDate}`, 20, 30);
-      doc.text(`Total Count : ${formData.count}`, 20, 40);
-      doc.text(`Package ID : ${formData.packageID}`, 20, 50);
-      doc.text(`Booking Number : ${invoicechange} `,20,60)
-  
-      // Save the PDF
-      doc.save('booking_invoice.pdf');
-      // Clear the form data
-      setFormData({
-        name: '',
-        startDate: '',
-        count: '',
-        packageID: '',
+    // Details
+    doc.setFontSize(12);
+    doc.text(`Start Date: ${formData.startDate}`, 20, 60);
+    doc.text(`Total Count: ${formData.count}`, 20, 70);
+    doc.text(`Package ID: ${formData.packageID}`, 20, 80);
+    doc.text(`Booking Number: ${invoicechange}`, 20, 90);
+
+    // Stylish separator line
+    doc.setLineWidth(0.5);
+    doc.line(10, 100, 200, 100);
+
+    // Success message
+    doc.setFontSize(16);
+    doc.text('Booked Successfully!', 20, 120);
+
+    // Save the PDF
+    doc.save('booking_invoice.pdf');
+
+    // Clear the form data
+    setFormData({
+      name: '',
+      startDate: '',
+      count: ''
+    });
+
+    alert("Now Pay Advance and take a screenshot of it");
+    navigate('/invoice');
+  } catch (error) {
+    if (error instanceof yup.ValidationError) {
+      const newErrors = {};
+      error.inner.forEach((validationError) => {
+        newErrors[validationError.path] = validationError.message;
       });
-
-      alert("Now Pay Advance and take a screenshot of it")
-      navigate('/invoice')
-
-      // Navigate to the invoice page (if needed)
-
-    } catch (error) {
-      if (error instanceof yup.ValidationError) {
-        const newErrors = {};
-        error.inner.forEach((validationError) => {
-          newErrors[validationError.path] = validationError.message;
-        });
-        setErrors(newErrors);
-      } else {
-        console.error('Error submitting form:', error);
-        toast.error("Wrong Data");
-      }
+      setErrors(newErrors);
+    } else {
+      console.error('Error submitting form:', error);
+      toast.error("Wrong Data");
     }
-  };
+  }
+};
+
+
+
+  const Logout = () => {
+    sessionStorage.removeItem('role')
+    sessionStorage.removeItem('accesstoken')
+    sessionStorage.removeItem('refreshtoken')
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -189,13 +209,13 @@ const Booking = () => {
         <Box sx={{ overflow: 'auto' }}>
           <ul className={`navbar-links ${showLinks ? 'active' : ''}`}>
             <li className='booking-li'>
-            <Link to={'/'}>  Home</Link>
+              <Link to={'/'}>  Home</Link>
             </li>
             <li className='booking-li'>
-            <Link to={'/package'}>Packages </Link>
+              <Link to={'/package'}>Packages </Link>
             </li>
-            <li className='booking-li'>
-            <Link to={'/'}>Logout</Link>
+            <li className='booking-li' onClick={Logout()}>
+              <Link to={'/'}>Logout</Link>
             </li>
           </ul>
         </Box>
@@ -207,7 +227,7 @@ const Booking = () => {
             Book and Pay
           </Typography>
           <form onSubmit={handleSubmit}>
-            
+
             <TextField
               fullWidth
               margin="normal"
@@ -238,7 +258,7 @@ const Booking = () => {
               error={!!errors.count}
               helperText={errors.count}
             />
-            <TextField
+            {/* <TextField
               fullWidth
               margin="normal"
               label="Package ID"
@@ -249,13 +269,13 @@ const Booking = () => {
               required
               error={!!errors.packageID}
               helperText={errors.packageID}
-            />
+            /> */}
             <Button type="submit" variant="contained" color="primary" >
               Submit
             </Button>
           </form>
         </Container>
-        <ToastContainer/>
+        <ToastContainer />
       </Box>
     </Box>
   );

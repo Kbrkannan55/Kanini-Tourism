@@ -1,27 +1,25 @@
-/* Chatbot Container */
+/* Chatbot container */
 .chatbot-container {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 320px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s ease-in-out;
-  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .chatbot-container.open {
   transform: translateX(0);
 }
 
-/* Chat Window */
+/* Chat window */
 .chat-window {
   display: flex;
   flex-direction: column;
   height: 400px;
-  overflow: hidden;
 }
 
 .messages {
@@ -31,66 +29,60 @@
 }
 
 .message {
-  margin: 6px 0;
-  padding: 8px 16px;
+  padding: 8px 12px;
+  margin: 4px 0;
   border-radius: 4px;
-  word-wrap: break-word;
 }
 
-.user {
-  background-color: #f2f2f2;
+.message.user {
   align-self: flex-end;
-  color: #333;
+  background-color: rgb(140, 140, 241);
 }
 
-.bot {
-  background-color: #e0f7fa;
+.message.bot {
   align-self: flex-start;
-  color: #333;
+  background-color: #f0f0f0;
 }
 
-/* Input Area */
+/* Input container */
 .input-container {
   display: flex;
   align-items: center;
   padding: 10px;
+  background-color: white;
   border-top: 1px solid #ccc;
 }
 
 input[type="text"] {
   flex: 1;
   padding: 8px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #f5f5f5;
-  font-size: 14px;
 }
 
-.send-button {
+button {
+  padding: 8px 12px;
   margin-left: 10px;
-  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  font-size: 14px;
 }
 
-.send-button:hover {
-  background-color: #0056b3;
-}
-
+/* Toggle chat button */
 .toggle-chat-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 8px;
-  text-align: center;
   background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  border-radius: 0 0 8px 8px;
+  color: white;
   font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .toggle-chat-button:hover {

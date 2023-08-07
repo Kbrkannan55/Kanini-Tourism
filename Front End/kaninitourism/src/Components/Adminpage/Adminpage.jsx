@@ -103,6 +103,14 @@ const Adminpage = () => {
             });
     };
 
+    const Logout =()=>{
+        sessionStorage.removeItem('accessToken')
+        sessionStorage.removeItem('refreshToken')
+        sessionStorage.removeItem('role')
+        sessionStorage.removeItem('id')
+
+    }
+
     return (
         <div>
             <nav className="navbar">
@@ -117,7 +125,7 @@ const Adminpage = () => {
                 <ul className={`navbar-links ${showLink ? 'active' : ''}`}>
                  <Link style={{textDecoration:'none',color:'black'}} to={'/'}><li>Home</li></Link>
                  <Link style={{textDecoration:'none',color:'black'}} to={'/'}><li>Image Gallery</li></Link>
-                <Link style={{textDecoration:'none',color:'black'}} to={'/'}><li>Logout</li></Link>
+                <Link style={{textDecoration:'none',color:'black'}} to={'/'}><li onClick={Logout}>Logout</li></Link>
                 </ul>
             </nav>
 
