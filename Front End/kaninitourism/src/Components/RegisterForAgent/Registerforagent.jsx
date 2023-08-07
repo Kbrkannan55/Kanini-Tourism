@@ -25,8 +25,8 @@ const RegisterForAgent = () => {
         }
         if (!userDTO.phone) {
             newErrors.phone = 'Phone Number is required';
-        } else if (!/^\d+$/.test(userDTO.phone)) {
-            newErrors.phone = 'Only numbers are allowed';
+        } else if (!/^\d{10}$/.test(userDTO.phone)) {
+            newErrors.phone = 'Only 10 numbers are allowed';
         }
         if (!userDTO.username) {
             newErrors.username = 'Username is required';

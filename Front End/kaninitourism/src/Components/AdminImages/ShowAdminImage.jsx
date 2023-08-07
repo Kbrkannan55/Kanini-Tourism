@@ -3,6 +3,7 @@ import GalleryImages from './AdminImage';
 import axios from 'axios';
 import Adminpage from '../Adminpage/Adminpage';
 import AdminImage from './AdminImage';
+import './AdminImages.css'
 
 function ShowAdminImage() {
     const [galleryList, setgalleryList] = useState([])

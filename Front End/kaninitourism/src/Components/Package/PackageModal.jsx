@@ -16,11 +16,12 @@ const PackageModal = ({ isOpen, closeModal, packageData }) => {
       <div className='Modal-content'>
         <h2>{packageData.packageType}</h2>
         <div className='Modal-details'>
-          <p><strong>Source:</strong> {packageData.source}</p>
-          <p><strong>Destination:</strong> {packageData.destination}</p>
-          <p><strong>Total Days:</strong> {packageData.totaldays}</p>
-          <p><strong>Vehicle Type:</strong> {packageData.vehicleType}</p>
-          <p><strong>Itinerary Details:</strong> {packageData.itineraryDetails}</p>
+        <p><strong>Package ID :</strong> {packageData.id}</p>
+          <p><strong>Source :</strong> {packageData.source}</p>
+          <p><strong>Destination :</strong> {packageData.destination}</p>
+          <p><strong>Total Days :</strong> {packageData.totaldays}</p>
+          <p><strong>Vehicle Type :</strong> {packageData.vehicleType}</p>
+          <p><strong>Itinerary Details :</strong> {packageData.itineraryDetails}</p>
           {/* Add more details as needed */}
         </div>
         <div className='Modal-buttons'>

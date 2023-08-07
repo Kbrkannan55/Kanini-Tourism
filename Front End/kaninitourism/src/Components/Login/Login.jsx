@@ -47,13 +47,13 @@ const Login = () => {
         sessionStorage.setItem('refreshToken', data.refreshToken);
         sessionStorage.setItem('role', data.role);
         toast.success('Login successful!');
-        if(data.role=="Admin"){
+        if(data.role==="Admin"){
             loginselect('/adminpage')
         }
-        if(data.role=="Agent"){
+        if(data.role==="Agent"){
             loginselect('/agentpage')
         }
-        if(data.role=="User"){
+        if(data.role==="User"){
             loginselect('/book')
         }
         

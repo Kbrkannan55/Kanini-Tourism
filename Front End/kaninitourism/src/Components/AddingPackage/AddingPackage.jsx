@@ -34,7 +34,7 @@ const ValidationSchema = yup.object().shape({
 
 const AddingPackage = () => {
     const [formData, setFormData] = useState({
-        id: 2,
+        id: sessionStorage.getItem('Id'),
         packageType: '',
         description: '',
         pricePerPerson: '',

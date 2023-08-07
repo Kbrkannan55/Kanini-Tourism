@@ -4,9 +4,12 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
     font-size: 18px;
     margin-top: 70px;
+    background-image: url(../../Assets/Travelplace4.jpg);
+   
+    filter: blur(80%);
   }
   
   .user-register-title {

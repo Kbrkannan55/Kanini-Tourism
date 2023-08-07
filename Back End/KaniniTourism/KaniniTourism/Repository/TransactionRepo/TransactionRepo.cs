@@ -1,4 +1,5 @@
-﻿using KaniniTourism.Models;
+﻿using KaniniTourism.GlobalExceptions;
+using KaniniTourism.Models;
 using loginauth.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,10 @@ namespace KaniniTourism.Repository.TransactionServices
         public async Task<ActionResult<List<Transaction>>> GetAllTransaction()
         {
             var details = await _context.transaction.ToListAsync();
+            if (details == null)
+            {
+                throw new Exception(CustomException.ExceptionMessages["Empty"]);
+            }
             return details;
         }
 

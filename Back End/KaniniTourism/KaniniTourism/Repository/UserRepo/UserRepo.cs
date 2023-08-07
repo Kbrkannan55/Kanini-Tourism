@@ -103,7 +103,8 @@ namespace KaniniTourism.Repository.UserRepo
             {
                 AccessToken = newAccessToken,
                 RefreshToken = newRefreshToken,
-                Role = user.Role
+                Role = user.Role,
+                Id=user.Id
             });
         }
 
@@ -111,7 +112,7 @@ namespace KaniniTourism.Repository.UserRepo
         private string CreateJwt(User user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("veryverysceret.....");
+            var key = Encoding.ASCII.GetBytes("This Token is the JWT Token.....");
             var identity = new ClaimsIdentity(new Claim[]
             {
                 new Claim(ClaimTypes.Role, user.Role),
@@ -177,7 +178,7 @@ namespace KaniniTourism.Repository.UserRepo
         //for refresh token i need the GetPrincipleFromExpiredToken meathod
         private ClaimsPrincipal GetPrincipleFromExpiredToken(string token)
         {
-            var key = Encoding.ASCII.GetBytes("veryverysceret.....");
+            var key = Encoding.ASCII.GetBytes("This Token is the JWT Token.....");
             var tokenValidationParameters = new TokenValidationParameters
             {
                 ValidateAudience = false,

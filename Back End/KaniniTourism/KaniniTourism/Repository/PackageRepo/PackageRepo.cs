@@ -1,4 +1,5 @@
-﻿using KaniniTourism.Models;
+﻿using KaniniTourism.GlobalExceptions;
+using KaniniTourism.Models;
 using loginauth.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp;
@@ -17,6 +18,10 @@ namespace KaniniTourism.Repository.PackageServices
         public async Task<ActionResult<List<Package>>> GetAllPackages()
         {
             var details = await _context.packages.ToListAsync();
+            if (details == null)
+            {
+                throw new Exception(CustomException.ExceptionMessages["Empty"]);
+            }
             return details;
         }
 
@@ -31,6 +36,10 @@ namespace KaniniTourism.Repository.PackageServices
         public async Task<ActionResult<List<Package>>> GetFiltedPackages(string type, string desti,string transport)
         {
             var details= await _context.packages.Where(x=>x.PackageType==type && x.Destination==desti && x.VehicleType==transport).ToListAsync();
+            if (details == null)
+            {
+                throw new Exception(CustomException.ExceptionMessages["Empty"]);
+            }
             return details;
         }
     }

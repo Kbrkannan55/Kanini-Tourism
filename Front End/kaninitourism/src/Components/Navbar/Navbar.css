@@ -5,7 +5,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  /* background-color: #333; */
+  background-color:aliceblue;
+  border-radius:0 55px 55px;
   color: black;
 }
 

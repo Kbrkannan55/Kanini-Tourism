@@ -1,4 +1,5 @@
-﻿using KaniniTourism.Models;
+﻿using KaniniTourism.GlobalExceptions;
+using KaniniTourism.Models;
 using loginauth.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,10 @@ namespace KaniniTourism.Repository.FeedbackServices
         public async Task<ActionResult<List<Feedback>>> GetAllFeedback()
         {
             var details = await _context.feedbacks.ToListAsync();
+            if (details == null)
+            {
+                throw new Exception(CustomException.ExceptionMessages["Empty"]);
+            }
             return details;
         }
 

@@ -29,63 +29,36 @@ import NotFoundPage from './Components/NotFoundPage/NotFoundPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AddingPackage from './Components/AddingPackage/AddingPackage';
 import TravelAgentPackage from './Components/TravelAgentPackage/TravelAgentPackage';
+import ShowAdminImage from './Components/AdminImages/ShowAdminImage';
+import { NotificationsOffOutlined } from '@mui/icons-material';
 
 
 function App() {
 
+
   return (
     <>
-      {/* <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> */}
       <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet"></link>
-      {/* <Booking/> */}
-      {/* <Home/> */}
-      {/* <NotFoundPage/> */}
-      {/* <Navbar/> */}
-      {/* <Register/> */}
-      {/* <Login/> */}
-      {/* <Navbar/> */}
-      {/* <Home/> */}
-      {/* <TravelAgentPage/> */}
-      {/* <RegistrationForm/> */}
-      {/* <RegistrationFormforAgent/> */}
-      {/* <Adminpage/> */}
-      {/* <AvailableAgencies/> */}
-      {/* <Feedback/> */}
-      {/* <AdminImage/> */}
-      {/* <ShowSpot/> */}
-      {/* <ShowPlace/> */}
-      {/* <Place/> */}
-      {/* <CRUDgallery/> */}
-      {/* <Hotel/> */}
-      {/* <ShowHotel/> */}
-      {/* <ShowSpot/> */}
-      {/* <Payment/> */}
-      {/* <Chatbot/> */}
-      {/* <Package/> */}
-      {/* <TravelAgentPage/> */}
-      {/* <TravelAgentHotel/> */}
-      {/* <TravelAgentSpot/> */}
-      {/* <ShowPlace/> */}
-      {/* <Invoice/> */}
       <BrowserRouter>
-      <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/package' element={<Package/>}/>
-      <Route path='/feedback' element={<Feedback/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/signup' element={<Register/>}/>
-      <Route path='/agentsignup' element={<RegistrationFormforAgent/>}/>
-      <Route path='/login/signup' element={<Register/>}/>
-      <Route path='/adminpage' element={<Adminpage/>}/>
-      <Route path='/agentpage' element={<TravelAgentPage/>}/>
-      <Route path='/book' element={<Booking/>}/>
-      <Route path='/payment' element={<Payment/>}/>
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/package' element={<Package />} />
+          <Route path='/feedback' element={<Feedback />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Register />} />
+          <Route path='/agentsignup' element={<RegistrationFormforAgent />} />
+          <Route path='/login/signup' element={<Register />} />
+          <Route path='/adminpage' element={sessionStorage.getItem('role') === "Admin" ? <Adminpage /> : <NotFoundPage />} />
+          <Route path='/agentpage' element={sessionStorage.getItem('role') === "Agent" ? <TravelAgentPackage /> : <NotFoundPage />} />
+          <Route path='/book' element={<Booking />} />
+          <Route path='/payment' element={<Payment />} />
+          <Route path='/invoice' element={<Invoice />} />
+          <Route path='/avaiableagencies' element={sessionStorage.getItem('role') === "Admin" ? <AvailableAgencies />:<NotFoundPage/>} />
+          <Route path='/adminimage' element={sessionStorage.getItem('role') === "Admin" ?<AdminImage />:<NotFoundPage/>} />
+          <Route path='/showplace' element={<ShowPlace />} />
+          <Route path='/*' element={<NotFoundPage />} />
+        </Routes>
       </BrowserRouter>
-      {/* <AddingPackage/> */}
-      {/* <TravelAgentPackage/> */}
-
     </>
   );
 }

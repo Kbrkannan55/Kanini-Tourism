@@ -33,7 +33,7 @@ function Chatbot() {
           text: 'Sure, I can help you with a variety of topics. Just let me know what you need assistance with!',
           user: 'bot'
         };
-      } else if (userMessage.text.toLowerCase().includes('order')) {
+      } else if (userMessage.text.toLowerCase().includes('packages')) {
         botMessage = {
           text: 'To place an order, please visit our website and follow the steps outlined there.',
           user: 'bot'

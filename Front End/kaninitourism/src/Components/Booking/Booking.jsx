@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import {
   AppBar,
   Box,
@@ -16,6 +18,8 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Link, useNavigate } from 'react-router-dom';
+import { toPdf } from '@react-pdf/renderer';
+import { PDFViewer, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import './Booking.css';
 import Logo from '../../Assets/traveltour.png';
 import { ToastContainer, toast } from 'react-toastify';
@@ -28,11 +32,38 @@ const validationSchema = yup.object().shape({
   packageID: yup.number().required('Package ID is required'),
 });
 
+const PdfDocument = ({ formData }) => {
+  return (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.section}>
+          <Text>Name: {formData.name}</Text>
+          <Text>Start Date: {formData.startDate}</Text>
+          <Text>Total Count: {formData.count}</Text>
+          <Text>Package ID: {formData.packageID}</Text>
+        </View>
+      </Page>
+    </Document>
+  );
+};
+
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: 'row',
+    backgroundColor: '#E4E4E4',
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1,
+  },
+});
+
 const Booking = () => {
   const [showLinks, setShowLinks] = useState(false);
-
   const [formData, setFormData] = useState({
     id: 2,
+    name: '',
     startDate: '',
     count: '',
     packageID: '',
@@ -52,6 +83,7 @@ const Booking = () => {
       [name]: value,
     }));
   };
+  const [invoicechange,setinvoicechange]=useState(1000)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -59,18 +91,42 @@ const Booking = () => {
       // await validationSchema.validate(formData, { abortEarly: false });
       const response = await axios.post('https://localhost:7050/api/Booking', formData);
       console.log(response.data);
-  
+
       // Display a success toast message
       toast.success('Booked successfully!');
+      setinvoicechange(invoicechange+1);
+
+      // Generate the PDF content
+      const pdfData = (
+        <PdfDocument formData={formData} />
+      );
+
+      // Convert the PDF content to blob
+      const doc = new jsPDF();
+
+      // Set the content of the PDF
+      doc.text('TT Tourism', 20,10);
+      doc.text('Booking Invoice', 20, 20);
+      // doc.text(`Name: ${formData.name}`, 10, 20);
+      doc.text(`Start Date : ${formData.startDate}`, 20, 30);
+      doc.text(`Total Count : ${formData.count}`, 20, 40);
+      doc.text(`Package ID : ${formData.packageID}`, 20, 50);
+      doc.text(`Booking Number : ${invoicechange} `,20,60)
   
+      // Save the PDF
+      doc.save('booking_invoice.pdf');
       // Clear the form data
       setFormData({
-        
+        name: '',
         startDate: '',
         count: '',
         packageID: '',
       });
-      navigate('/payment')
+
+      alert("Now Pay Advance and take a screenshot of it")
+      navigate('/invoice')
+
+      // Navigate to the invoice page (if needed)
 
     } catch (error) {
       if (error instanceof yup.ValidationError) {
@@ -81,7 +137,7 @@ const Booking = () => {
         setErrors(newErrors);
       } else {
         console.error('Error submitting form:', error);
-        toast.error("Wrong Data")
+        toast.error("Wrong Data");
       }
     }
   };
@@ -157,9 +213,6 @@ const Booking = () => {
               margin="normal"
               label="Name"
               name="name"
-             
-              // error={!!errors.name}
-              // helperText={errors.name}
             />
             <TextField
               fullWidth

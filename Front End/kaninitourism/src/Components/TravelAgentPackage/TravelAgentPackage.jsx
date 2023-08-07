@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Logo from '../../Assets/traveltour1.jpg'
 import './TravelAgentPackage.css'
 import AddingPackage from '../AddingPackage/AddingPackage'
+import { Link } from '@mui/material'
 
 const TravelAgentPackage = () => {
     const [showLink, setShowLink] = useState(false);
@@ -10,6 +11,12 @@ const TravelAgentPackage = () => {
     const toggleLinks = () => {
         setShowLink(!showLink);
     };
+
+    const Logout=()=>{
+        sessionStorage.removeItem('role')
+        sessionStorage.removeItem('accesstoken')
+        sessionStorage.removeItem('refreshtoken')
+    }
 
     return (
         <div>
@@ -25,13 +32,13 @@ const TravelAgentPackage = () => {
                 </div>
                 <ul className={`navbar-links ${showLink ? 'active' : ''}`}>
                     <li>
-                        HOME
+                     <Link style={{textDecoration:'none',color:'black'}} to={'/'}>HOME</Link>
                     </li>
                     <li>
-                        PACKAGE
+                    <Link style={{textDecoration:'none',color:'black'}} to={'/'}>PACKAGE</Link>
                     </li>
-                    <li>
-                        LOGOUT
+                    <li onClick={Logout()}>
+                    <Link style={{textDecoration:'none',color:'black'}} to={'/'}>LOGOUT</Link>
                     </li>
                 </ul>
 

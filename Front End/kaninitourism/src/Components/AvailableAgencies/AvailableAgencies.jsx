@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Logo from '../../Assets/traveltour1.jpg';
 import Logo1 from '../../Assets/TravelTourist.jpg'
 import './AvailableAgencies.css';
+import { Link } from 'react-router-dom';
 
 
 const AvailableAgencies = () => {
@@ -16,7 +17,7 @@ const AvailableAgencies = () => {
         getAllAgentDetails();
     }, []);
 
-   
+
     const DeleteAgent = (agentId) => {
         const deleteUrl = `https://localhost:7050/api/Auth/Delete?id=${agentId}`;
 
@@ -76,17 +77,17 @@ const AvailableAgencies = () => {
                     <span></span>
                 </div>
                 <ul className={`navbar-links ${showLink ? 'active' : ''}`}>
-                    <li>Home</li>
-                    <li>Image Gallery</li>
-                    <li>Logout</li>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={'/'}> <li>Home</li></Link>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={'/'}><li>Image Gallery</li></Link>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={'/'}><li>Logout</li></Link>
                 </ul>
             </nav>
 
             <div className='totaldiv'>
                 <div className='leftnav'>
-                    <div>Approval List</div>
-                    <div>Add Images</div>
-                    <div>Available Agencies</div>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={'/adminpage'}><div>Approval List</div></Link>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={'/adminimage'}> <div>Add Images</div></Link>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={'/avaiableagencies'}><div>Available Agencies</div></Link>
                 </div>
                 <h3 className="card-title" style={{ marginLeft: '320px' }}>Availabe Agencies</h3>
                 <div className="approvallist">
@@ -99,19 +100,19 @@ const AvailableAgencies = () => {
                                 <th>Email</th>
                                 {/* <th>Password</th> */}
                                 <th>Action</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
                             {agent.map((agents, index) => (
                                 <tr key={index}>
-                                    
+
                                     <td>{agents.username}</td>
                                     <td>{agents.name}</td>
                                     <td>{agents.phone}</td>
                                     <td>{agents.email}</td>
                                     {/* <td>{agents.password}</td> */}
-                                   
+
                                     <td><button onClick={() => DeleteAgent(agents.id)}>Decline</button></td>
                                 </tr>
                             ))}

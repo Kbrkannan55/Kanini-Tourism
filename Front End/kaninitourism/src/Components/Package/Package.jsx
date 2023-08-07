@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Image1 from '../../Assets/Thailand.jpg';
+import Image1 from '../../Assets/Travelplace2.jpg';
 import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
 import PackageModal from './PackageModal'; // Import the PackageModal component
@@ -73,10 +73,10 @@ const Package = () => {
     <div className='Package-whole-page'>
       <Navbar />
       <div className='Package-top-Image'>
-        <img src={Image1} alt='Package' width={'100%'} height={'500px'} />
+        <img src={Image1} alt='Package' width={'100%'} style={{height:'660px'}}  />
       </div>
 
-      <div className='search-container'>
+      <div className='search-container' style={{marginTop:'10px'}}>
         <input
           type='text'
           placeholder='Search by package type'
@@ -96,13 +96,14 @@ const Package = () => {
           onChange={handleTransportChange}
         />
       </div>
-
+      <h2>Available Packages</h2>
       <div className='Package-list'>
         {packages.map((pkg, index) => (
           <div className='Package-card' key={index}>
             <h2>{pkg.packageType}</h2>
             <p>Source: {pkg.source}</p>
             <p>Destination: {pkg.destination}</p>
+            <h5>Price Per Person : {pkg.pricePerPerson}</h5>
             <button onClick={() => openModal(pkg)}>View Details</button>
           </div>
         ))}

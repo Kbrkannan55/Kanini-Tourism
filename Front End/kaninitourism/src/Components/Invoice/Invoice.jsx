@@ -16,7 +16,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import './Invoice.css'
 
-const Invoice = () => {
+const Invoice = (props) => {
   // Sample data for demonstration purposes
   const selectedPacks = [
     { id: 1, name: 'Package A', customers: 2, adults: 1, children: 1 },

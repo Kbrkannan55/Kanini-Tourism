@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Logo from '../../Assets/traveltour1.jpg';
 import './Adminpage.css';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 const Adminpage = () => {
     const [showLink, setShowLink] = useState(false);
@@ -114,17 +115,17 @@ const Adminpage = () => {
                     <span></span>
                 </div>
                 <ul className={`navbar-links ${showLink ? 'active' : ''}`}>
-                    <li>Home</li>
-                    <li>Image Gallery</li>
-                    <li>Logout</li>
+                 <Link style={{textDecoration:'none',color:'black'}} to={'/'}><li>Home</li></Link>
+                 <Link style={{textDecoration:'none',color:'black'}} to={'/'}><li>Image Gallery</li></Link>
+                <Link style={{textDecoration:'none',color:'black'}} to={'/'}><li>Logout</li></Link>
                 </ul>
             </nav>
 
             <div className='totaldiv'>
                 <div className='leftnav'>
-                    <div>Approval List</div>
-                    <div>Add Images</div>
-                    <div>Available Agencies</div>
+                    <Link style={{textDecoration:'none',color:'black'}} to={'/adminpage'}><div>Approval List</div></Link>
+                   <Link style={{textDecoration:'none',color:'black'}} to={'/adminimage'}> <div>Add Images</div></Link>
+                   <Link style={{textDecoration:'none',color:'black'}} to={'/avaiableagencies'}><div>Available Agencies</div></Link>
                 </div>
                 <h3 className="card-title" style={{ marginLeft: '320px' }}>Agent Approval List</h3>
                 <div className="approvallist">

@@ -25,14 +25,15 @@ const Navbar = () => {
        <Link style={{fontSize:'18px'}} to={'/'}> Home </Link>
         </li>
         <li>
-        Services
-        </li>
-        <li>
         <Link style={{fontSize:'18px'}} to={'/package'}> Packages </Link>
         </li>
         <li>
+          <Link style={{fontSize:'18px',textDecoration:'none',color:'black'}}  to={'/showplace'}>Services</Link>
+        </li>
+          <li>
         <Link style={{fontSize:'18px'}} to={'/feedback'}> Contact </Link>
         </li>
+        
         <li>
         <Link style={{fontSize:'18px'}} to={'/login'}> Login </Link>
         </li>
