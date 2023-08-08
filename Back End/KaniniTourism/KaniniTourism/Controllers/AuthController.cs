@@ -75,7 +75,7 @@ namespace loginauth.Controllers
             }
         }
 
-        /*[Authorize(Roles = "Admin")]*/
+        
         [HttpGet]
         public async Task<ActionResult<List<User>>> GetAllAgent()
         {
@@ -89,7 +89,6 @@ namespace loginauth.Controllers
             }
         }
 
-      /*  [Authorize(Roles = "Admin")]*/
         [HttpDelete("Delete")]
         public async Task<ActionResult<List<User>>> DeleteAgent(int id)
         {

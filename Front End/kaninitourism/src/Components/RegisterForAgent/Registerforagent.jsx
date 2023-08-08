@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Registerforagent.css';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 const RegisterForAgent = () => {
     const [userDTO, setUserDTO] = useState({
@@ -150,6 +151,8 @@ const RegisterForAgent = () => {
             </div>
             {success && <div className="success">Registered successfully!</div>}
         </div>
+        <div className="register-footerdiv" style={{marginTop:'25px'}}></div>
+    <Footer/>
         </>
     );
 };

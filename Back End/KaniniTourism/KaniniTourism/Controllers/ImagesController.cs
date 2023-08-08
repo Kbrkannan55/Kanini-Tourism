@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KaniniTourism.Controllers
 {
-   /* [Authorize(Roles ="Admin")]*/
     [Route("api/[controller]")]
     [ApiController]
     
@@ -106,8 +105,7 @@ namespace KaniniTourism.Controllers
         {
             return _context.imageGallery.Any(e => e.AdminImgsId == id);
         }
-/*
-        [Authorize(Roles = "Admin")]*/
+
         //to delete images
         [HttpDelete("{id}")]
         public async Task<ActionResult<ImageGallery>> DeletePlaceDetail(int id)

@@ -1,12 +1,14 @@
 import { Navigate, useNavigate } from "react-router-dom";
+import Adminpage from "../Adminpage/Adminpage";
+import TravelAgentPackage from "../TravelAgentPackage/TravelAgentPackage";
 
 function ProtectedAgent({role, children})
 {
-    if(localStorage.getItem("Role")!= null && localStorage.getItem("Role") === "Agent")
+    if(sessionStorage.getItem("role")!= null && sessionStorage.getItem("role") === "Agent")
     {
-        return children;
+        return <TravelAgentPackage/>;
     }
-    return <Navigate to="/"/>
+    return <Navigate to="/notfoundpage"/>
 }
 
 export default ProtectedAgent;

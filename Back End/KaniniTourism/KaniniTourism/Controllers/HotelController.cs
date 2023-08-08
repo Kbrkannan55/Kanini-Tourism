@@ -12,40 +12,7 @@ namespace KaniniTourism.Controllers
     [ApiController]
     public class HotelController : ControllerBase
     {
-        /* private readonly IHotelRepo _context;
-         public HotelController(IHotelRepo context)
-         {
-             _context = context;
-         }
-
-
-         [HttpGet]
-         public async Task<ActionResult<List<Hotels>>> GetAllHotels()
-         {
-             try
-             {
-                 return await _context.GetAllHotels();
-             }
-             catch (Exception ex)
-             {
-                 return BadRequest(ex.Message);
-             }
-
-         }
-
-
-         [HttpPost]
-         public async Task<ActionResult<List<Hotels>>> PostHotels(Hotels hotels)
-         {
-             try
-             {
-                 return await _context.PostHotels(hotels);
-             }
-             catch (Exception ex)
-             {
-                 return BadRequest(ex.Message);
-             }
-         }*/
+        
 
         private readonly TourismContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
@@ -61,6 +28,7 @@ namespace KaniniTourism.Controllers
         [HttpPost]
         public async Task<ActionResult<Hotels>> AddSpecialPlace([FromForm] Hotels allPlaces)
         {
+            
             allPlaces.ImageName = await SaveImage(allPlaces.ImageFile);
             _context.hotels.Add(allPlaces);
             await _context.SaveChangesAsync();

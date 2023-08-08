@@ -1,12 +1,13 @@
 import { Navigate, useNavigate } from "react-router-dom";
+import Adminpage from "../Adminpage/Adminpage";
 
 function ProtectedAdmin({role, children})
 {
-    if(localStorage.getItem("Role")!= null && localStorage.getItem("Role") === "Admin")
+    if(sessionStorage.getItem("role")!= null && sessionStorage.getItem("role") === "Admin")
     {
-        return children;
+        return <Adminpage/>;
     }
-    return <Navigate to="/"/>
+    return <Navigate to="/notfoundpage"/>
 }
 
 export default ProtectedAdmin;

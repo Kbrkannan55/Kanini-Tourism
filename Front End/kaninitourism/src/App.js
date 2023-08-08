@@ -31,11 +31,14 @@ import AddingPackage from './Components/AddingPackage/AddingPackage';
 import TravelAgentPackage from './Components/TravelAgentPackage/TravelAgentPackage';
 import ShowAdminImage from './Components/AdminImages/ShowAdminImage';
 import { NotificationsOffOutlined } from '@mui/icons-material';
+import ProtectedAdmin from './Components/Protected/ProtectedAdmin';
+import ProtectedAgent from './Components/Protected/ProtectedAgent';
+import ProtectedUser from './Components/Protected/ProtectedUser';
 
 
 function App() {
   const roles=sessionStorage.getItem('role')
-
+  const token=sessionStorage.getItem('accessToken')
 
   return (
     <>
@@ -49,8 +52,8 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Register />} />
           <Route path='/agentsignup' element={<RegistrationFormforAgent />} />
-          <Route path='/adminpage' element={(roles === "Admin") ? <Adminpage /> : <NotFoundPage />} />
-          <Route path='/agentpage' element={(roles === "Agent") ? <TravelAgentPackage /> : <NotFoundPage />} />
+          <Route path='/adminpage' element={(roles === "Admin" ? <Adminpage/> : <NotFoundPage/>)}/>
+          <Route path='/agentpage' element={<ProtectedAgent>roles={token}<TravelAgentPackage/></ProtectedAgent>}/>
           <Route path='/book' element={<Booking />} />
           <Route path='/payment' element={<Payment />} />
           <Route path='/invoice' element={<Invoice />} />

@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
 import Navbar from '../Navbar/Navbar';
 import { Navigate, useNavigate } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState({
@@ -132,6 +133,8 @@ const Login = () => {
           </Button>
         </DialogContent>
       </Dialog>
+      <div className="register-footerdiv" style={{marginTop:'25px'}}></div>
+    <Footer/>
     </>
   );
 };

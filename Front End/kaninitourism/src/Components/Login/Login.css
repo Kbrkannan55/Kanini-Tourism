@@ -18,6 +18,8 @@
 }
 
 .input-container {
+  background-image: url(../../Assets/Travelplace4.jpg);
+  border-radius: 20px;
   margin: 0.5rem 0;
   width: 100%;
   max-width: 400px;

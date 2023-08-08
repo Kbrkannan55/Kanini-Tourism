@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <AppBar position="static" className="navbar" color="inherit">
       <Toolbar>
-        <img className="image-logo" src={Logo} style={{ width: '120px' }} alt="Logo" />
+        <img className="image-logo" src={Logo} style={{ width: '120px',borderRadius:'25px' }} alt="Logo" />
 
         <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
           <MenuIcon />

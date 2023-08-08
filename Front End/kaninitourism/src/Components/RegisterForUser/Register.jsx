@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
 import Navbar from '../Navbar/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 const Register = () => {
   const [userDTO, setUserDTO] = useState({
@@ -148,6 +149,8 @@ const Register = () => {
       </div>
       {success && <div className="success">Registered successfully!</div>}
     </div>
+    <div className="register-footerdiv" style={{marginTop:'25px'}}></div>
+    <Footer/>
     </>
   );
 };

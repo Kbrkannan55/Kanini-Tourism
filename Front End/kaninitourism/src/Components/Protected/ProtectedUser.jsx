@@ -1,12 +1,14 @@
 import { Navigate, useNavigate } from "react-router-dom";
+import Adminpage from "../Adminpage/Adminpage";
+import Booking from "../Booking/Booking";
 
 function ProtectedUser({role, children})
 {
-    if(localStorage.getItem("Role")!= null && localStorage.getItem("Role") === "User")
+    if(sessionStorage.getItem("role")!= null && sessionStorage.getItem("role") === "User")
     {
-        return children;
+        return <Booking/>;
     }
-    return <Navigate to="/"/>
+    return <Navigate to="/notfoundpage"/>
 }
 
 export default ProtectedUser;

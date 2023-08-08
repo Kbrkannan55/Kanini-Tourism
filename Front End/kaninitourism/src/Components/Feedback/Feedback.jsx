@@ -94,7 +94,7 @@ const Feedback = () => {
           <ToastContainer />
         </div>
       </div>
-      <Chatbot/>
+      <Chatbot />
     </div>
   );
 };
